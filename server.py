@@ -33,6 +33,11 @@ def _pick_data_dir() -> str:
     env = (os.environ.get("CENTER_DATA_DIR") or "").strip()
     if env:
         return os.path.abspath(env)
+    # On Railway: use /data volume if available, else /tmp
+    if os.environ.get("RAILWAY_ENVIRONMENT"):
+        data_dir = "/data"
+        os.makedirs(data_dir, exist_ok=True)
+        return data_dir
     if getattr(sys, "frozen", False):
         return os.path.dirname(os.path.abspath(sys.executable))
     return _CODE_ROOT
@@ -55,7 +60,7 @@ HTML_PATH = (
     else (_HTML_LOCAL if os.path.isfile(_HTML_LOCAL) else _HTML_BUNDLE)
 )
 _DB_CONFIG_FILE = os.path.join(BASE_DIR, "center_db_config.json")
-PORT = 5000
+PORT = int(os.environ.get('PORT', 5000))
 
 _REV_COND = threading.Condition()
 _DB_REV_MS = 0  # updated by writes + file watcher
@@ -2643,11 +2648,13 @@ def main():
     print("لإيقاف السيرفر اضغط Ctrl+C")
     print("-" * 50)
 
-    if (os.environ.get("CENTER_NO_BROWSER") or "").strip() != "1":
+    # No browser on Railway/cloud
+    if not (os.environ.get("RAILWAY_ENVIRONMENT") or os.environ.get("CENTER_NO_BROWSER","")=="1"):
         def open_browser():
             import time
             time.sleep(1)
-            webbrowser.open(url)
+            try: webbrowser.open(url)
+            except: pass
         threading.Thread(target=open_browser, daemon=True).start()
 
     try:

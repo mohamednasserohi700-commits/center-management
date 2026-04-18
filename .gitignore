@@ -1,0 +1,11 @@
+*.db
+*.db-wal
+*.db-shm
+center_serial_pool.json
+center_serial_used.json
+center_db_config.json
+__pycache__/
+*.pyc
+*.pyo
+.env
+.DS_Store
