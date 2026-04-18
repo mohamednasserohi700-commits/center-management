@@ -16,26 +16,67 @@
 body{font-family:'Cairo','Segoe UI',sans-serif;background:var(--bg);color:var(--text);direction:rtl}
 
 /* AUTH */
-#auth{position:fixed;inset:0;z-index:999;background:linear-gradient(145deg,#0f2744,#1a3d6b 50%,#0f2744);display:flex;align-items:center;justify-content:center}
-.acard{background:#fff;border-radius:24px;padding:48px 40px;width:420px;box-shadow:0 30px 70px rgba(0,0,0,.4);animation:fadeUp .4s}
+#auth{position:fixed;inset:0;z-index:999;background:linear-gradient(160deg,#0f2744 0%,#1a4080 35%,#2d6bb5 65%,#5b9de8 100%);display:flex;align-items:center;justify-content:center;padding-top:52px;padding-bottom:36px}
+.acard{background:#fff;border-radius:24px;width:820px;max-width:96vw;min-height:460px;box-shadow:0 30px 70px rgba(100,130,160,.35);animation:fadeUp .4s;display:flex;overflow:hidden}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.abrand{text-align:center;margin-bottom:34px}
-.abrand .ai{width:72px;height:72px;background:var(--p);border-radius:20px;display:inline-flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:12px;box-shadow:0 8px 24px rgba(15,39,68,.3)}
-.abrand h1{font-size:22px;font-weight:800;color:var(--p)}
-.abrand p{font-size:13px;color:var(--muted);margin-top:4px}
-.afield{margin-bottom:17px}
-.afield label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:7px;text-transform:uppercase}
-.afield input{width:100%;padding:13px 16px;border:2px solid var(--border);border-radius:12px;font-size:15px;font-family:inherit;transition:.2s}
-.afield input:focus{outline:none;border-color:var(--blue)}
-.abtn{width:100%;padding:14px;background:var(--p);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:8px;transition:.2s}
-.abtn:hover{background:var(--p2)}
+.acard-left{flex:1;padding:44px 38px;min-width:0}
+.acard-right{width:300px;background:linear-gradient(155deg,#1e3a5f,#2d5a8e 50%,#1e3a5f);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 28px;text-align:center;flex-shrink:0;position:relative;overflow:hidden}
+.acard-right-content{position:relative;z-index:1}
+.aright-icon{width:90px;height:90px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 20px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.acard-right h3{color:#fff;font-size:20px;font-weight:900;margin-bottom:12px;line-height:1.4}
+.acard-right p{color:rgba(255,255,255,.75);font-size:13px;line-height:1.7}
+.aright-dots{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.aright-dots span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3)}
+.aright-dots span.active{background:rgba(255,255,255,.9);width:28px;border-radius:5px}
+.abrand{margin-bottom:28px}
+.abrand h1{font-size:23px;font-weight:900;color:#1e3a5f;display:flex;align-items:center;gap:8px}
+.abrand p{font-size:13px;color:#6b7280;margin-top:5px}
+.afield{margin-bottom:16px}
+.afield label{display:block;font-size:12px;font-weight:700;color:#6b7280;margin-bottom:7px}
+.afield .ainp-wrap{position:relative}
+.afield .ainp-wrap .aicon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:14px;pointer-events:none}
+.afield input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;font-family:inherit;transition:.2s;background:#f9fafb;color:#111}
+.afield input:focus{outline:none;border-color:#2d5a8e;background:#fff;box-shadow:0 0 0 3px rgba(45,90,142,.1)}
+.abtn{width:100%;padding:13px;background:linear-gradient(135deg,#1e3a5f,#2d5a8e);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:8px;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.abtn:hover{background:linear-gradient(135deg,#16304f,#255080);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,58,95,.3)}
 .aerr{background:#fee2e2;color:#dc2626;border-radius:10px;padding:11px 14px;font-size:13px;margin-top:12px;display:none}
 .ahint{text-align:center;margin-top:14px;font-size:12px;color:#94a3b8}
+#auth-topbar{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:1000;border-bottom:1px solid rgba(0,0,0,.06)}
+#auth-topbar .atnav-brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:800;color:#1e3a5f}
+#auth-topbar .atnav-brand span{background:#1e3a5f;color:#fff;border-radius:6px;padding:4px 9px;font-size:11px;font-weight:900}
+#auth-topbar .atnav-links{display:flex;gap:4px}
+#auth-topbar .atnav-links a{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;text-decoration:none;transition:.15s;cursor:pointer}
+#auth-topbar .atnav-links a:hover{background:rgba(30,58,95,.08);color:#1e3a5f}
+#auth-topbar .atnav-links a.active{background:#1e3a5f;color:#fff}
+#auth-footer{position:fixed;bottom:0;left:0;right:0;height:36px;background:rgba(255,255,255,.7);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:11px;color:#9ca3af;z-index:1000;border-top:1px solid rgba(0,0,0,.05)}
 
 /* LAYOUT — شريط جانبي يمين */
 #app{display:flex;min-height:100vh}
-.topnav{background:var(--p);position:fixed;top:0;right:0;bottom:0;z-index:100;width:230px;box-shadow:-2px 0 12px rgba(0,0,0,.2)}
+.topnav{background:var(--p);position:fixed;top:0;right:0;bottom:0;z-index:100;width:230px;box-shadow:-2px 0 12px rgba(0,0,0,.2);transition:all .25s}
 .tn-inner{height:100%;display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:8px;max-width:100%}
+/* ── TOP BAR LAYOUT ── */
+body.layout-top .topnav{top:0;right:0;left:0;bottom:auto;width:100%;height:72px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.22)}
+body.layout-top .tn-inner{flex-direction:row;height:72px;align-items:center;padding:0 16px;gap:6px;overflow-x:auto;overflow-y:hidden}
+body.layout-top .tn-user{flex-direction:row;border:none;border-left:1px solid rgba(255,255,255,.18);padding:6px 16px;min-width:fit-content;flex-shrink:0;gap:10px}
+body.layout-top .tn-user .sbav{width:34px;height:34px;font-size:14px;border-radius:10px}
+body.layout-top .tn-user .sbui .nm{font-size:12px;max-width:120px}
+body.layout-top .tn-user .sbui .rl{font-size:10px}
+body.layout-top .tn-brand{flex-direction:row;border:none;border-right:1px solid rgba(255,255,255,.18);padding:6px 16px;min-width:fit-content;flex-shrink:0;gap:10px}
+body.layout-top .tn-brand .sblogo{width:36px;height:36px;font-size:18px;border-radius:10px}
+body.layout-top .tn-brand h2{font-size:13px;max-width:160px}
+body.layout-top .tn-brand span{font-size:11px}
+body.layout-top .tn-scroll{flex-direction:row;overflow-x:auto;overflow-y:hidden;flex:1;gap:3px;padding:0 6px;align-items:center}
+body.layout-top .ns{display:flex;flex-direction:row;align-items:center;gap:3px;flex-shrink:0;position:relative}
+body.layout-top .ns+.ns::before{content:'';display:block;width:1px;height:28px;background:rgba(255,255,255,.15);margin:0 4px;flex-shrink:0}
+body.layout-top .nl{display:none}
+body.layout-top .ni{white-space:nowrap;padding:8px 14px;font-size:13px;font-weight:700;border-radius:9px;gap:6px}
+body.layout-top .ni .ic{font-size:14px;width:18px}
+body.layout-top .ni.on{background:var(--acc);color:var(--p)}
+body.layout-top .sbadge{font-size:9px}
+body.layout-top .lout{font-size:18px;padding:4px 6px}
+body.layout-top .main{margin-right:0;width:100%;margin-top:72px}
+body.layout-top .tn-scroll::-webkit-scrollbar{height:4px}
+body.layout-top .tn-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.3);border-radius:2px}
 .tn-brand{display:flex;align-items:center;gap:8px;flex-shrink:0;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:10px}
 .tn-brand .sblogo{width:28px;height:28px;background:var(--acc);border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
 .tn-brand .tn-txt{display:flex;flex-direction:column;line-height:1.1}
@@ -213,26 +254,98 @@ textarea.fc{resize:vertical;min-height:72px}
 </head>
 <body>
 
+<!-- AUTH TOPBAR -->
+<div id="auth-topbar">
+  <div class="atnav-brand">
+    <span>System Makers</span>
+    إدارة السنتر التعليمي
+  </div>
+  <div class="atnav-links">
+    <a class="active">الرئيسية</a>
+    <a onclick="document.getElementById('about-mini-modal').style.display='flex'" style="cursor:pointer">حول</a>
+  </div>
+</div>
+
 <!-- AUTH -->
 <div id="auth">
   <div class="acard">
-    <div class="abrand">
-      <div class="ai">🎓</div>
-      <h1>سنتر الدروس الخصوصية</h1>
-      <p>نظام الإدارة المتكامل</p>
+    <div class="acard-left">
+      <div class="abrand">
+        <h1>مرحباً بعودتك 👋</h1>
+        <p>نظام الإدارة المتكامل</p>
+      </div>
+      <div class="afield">
+        <label>اسم المستخدم</label>
+        <div class="ainp-wrap">
+          <span class="aicon">👤</span>
+          <input id="au" placeholder="أدخل اسم المستخدم" autocomplete="username" value="">
+        </div>
+      </div>
+      <div class="afield">
+        <label>كلمة المرور</label>
+        <div class="ainp-wrap">
+          <span class="aicon">🔒</span>
+          <input id="ap" type="password" placeholder="أدخل كلمة المرور" autocomplete="current-password" value="">
+        </div>
+      </div>
+      <div class="afield" style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <input type="checkbox" id="remember-me" style="width:17px;height:17px;accent-color:#1e3a5f;cursor:pointer">
+        <label for="remember-me" style="font-size:13px;color:#6b7280;cursor:pointer;font-weight:600">تذكرني؟</label>
+      </div>
+      <button class="abtn" onclick="doLogin()">↪ دخول</button>
+      <div class="aerr" id="aerr"></div>
     </div>
-    <div class="afield"><label>اسم المستخدم</label>
-      <input id="au" placeholder="اسم المستخدم" autocomplete="username" value="">
+    <div class="acard-right">
+      <div class="acard-right-content">
+        <div class="aright-icon">🔐</div>
+        <h3>مرحباً بك في نظام إدارة السناتر التعليمية الذكي</h3>
+        <p>أدر سنترك التعليمي باحترافية كاملة من مكان واحد</p>
+        <div class="aright-dots">
+          <span></span><span></span><span class="active"></span>
+        </div>
+      </div>
     </div>
-    <div class="afield"><label>كلمة المرور</label>
-      <input id="ap" type="password" placeholder="••••••••" autocomplete="current-password" value="">
+  </div>
+</div>
+
+<!-- AUTH FOOTER -->
+<div id="auth-footer">برمجة: محمد ناصر عبدالله | System Makers © 2026</div>
+
+<!-- ABOUT MINI MODAL -->
+<div id="about-mini-modal" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:20px;width:440px;max-width:96vw;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.4);animation:fadeUp .3s">
+    <div style="background:linear-gradient(135deg,#0f2744,#2d5a8e);padding:26px 24px;position:relative">
+      <button onclick="document.getElementById('about-mini-modal').style.display='none'" style="position:absolute;top:14px;left:16px;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px;line-height:1">×</button>
+      <div style="text-align:center">
+        <div style="font-size:40px;margin-bottom:10px">🎓</div>
+        <div style="color:#fff;font-size:18px;font-weight:900;margin-bottom:4px">نظام إدارة السناتر التعليمية</div>
+        <div style="color:rgba(255,255,255,.65);font-size:12px">الإصدار 2.0 — System Makers © 2026</div>
+      </div>
     </div>
-    <div class="afield" style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-      <input type="checkbox" id="remember-me" style="width:18px;height:18px;accent-color:var(--p);cursor:pointer">
-      <label for="remember-me" style="font-size:13px;color:var(--muted);cursor:pointer;font-weight:600;text-transform:none">تذكرني على هذا الجهاز</label>
+    <div style="padding:22px 24px">
+      <p style="font-size:13px;color:#6b7280;line-height:1.8;margin-bottom:18px;text-align:center">
+        متخصصون في بناء أنظمة إدارة مخصصة للمراكز التعليمية بأحدث التقنيات وأفضل الأسعار.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="https://wa.me/201103763082" target="_blank" style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:linear-gradient(135deg,#1aad5e,#25d366);border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.3)">
+          <span style="font-size:24px">💬</span>
+          <div>
+            <div style="color:rgba(255,255,255,.8);font-size:10px;font-weight:700;letter-spacing:1px">واتساب — تواصل معنا</div>
+            <div style="color:#fff;font-size:17px;font-weight:900;direction:ltr">01103763082</div>
+          </div>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100095476066188" target="_blank" style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:linear-gradient(135deg,#0d5fd8,#1877f2);border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(24,119,242,.3)">
+          <span style="font-size:24px">📘</span>
+          <div>
+            <div style="color:rgba(255,255,255,.8);font-size:10px;font-weight:700;letter-spacing:1px">صفحة فيسبوك</div>
+            <div style="color:#fff;font-size:17px;font-weight:900">System Makers</div>
+          </div>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:16px">
+        <span style="font-size:11px;color:#9ca3af">برمجة: محمد ناصر عبدالله | System Makers © 2026</span>
+      </div>
     </div>
-    <button class="abtn" onclick="doLogin()">🔐 تسجيل الدخول</button>
-    <div class="aerr" id="aerr"></div>
   </div>
 </div>
 
@@ -264,17 +377,19 @@ textarea.fc{resize:vertical;min-height:72px}
           <div class="ni" data-p="payments" onclick="go('payments')">
             <span class="ic">💰</span>الرسوم والمدفوعات<span class="sbadge hidden" id="badge-late">0</span>
           </div>
+          <div class="ni" data-p="refunds" onclick="go('refunds')"><span class="ic">↩️</span>الاسترجاع</div>
           <div class="ni" data-p="due" onclick="go('due')">
             <span class="ic">⏰</span>المستحقات<span class="sbadge hidden" id="badge-due">0</span>
           </div>
           <div class="ni" data-p="expenses" onclick="go('expenses')"><span class="ic">🧾</span>المصروفات</div>
           <div class="ni" data-p="reports" onclick="go('reports')"><span class="ic">📈</span>التقارير المالية</div>
+          <div class="ni" data-p="teacher_share" onclick="go('teacher_share')"><span class="ic">⚖️</span>نسبة السنتر والمعلم</div>
         </div>
         <div class="ns" id="ns-adm">
           <span class="nl">إدارة</span>
           <div class="ni" data-p="teachers" onclick="go('teachers')"><span class="ic">👨‍🏫</span>المدرسون</div>
           <div class="ni" data-p="courses" onclick="go('courses')"><span class="ic">📚</span>المواد والمجموعات</div>
-          <div class="ni" data-p="users" onclick="go('users')"><span class="ic">👤</span>المستخدمون</div>
+          <div class="ni" data-p="users" onclick="go('users')"><span class="ic">👤</span>المستخدمين</div>
           <div class="ni" data-p="import_export" onclick="go('import_export')"><span class="ic">📦</span>استيراد وتصدير</div>
           <div class="ni" data-p="online_users" onclick="go('online_users')"><span class="ic">🟢</span>المتصلون</div>
           <div class="ni" data-p="settings" onclick="go('settings')"><span class="ic">⚙️</span>الإعدادات</div>
@@ -299,6 +414,7 @@ textarea.fc{resize:vertical;min-height:72px}
     <div class="topbar">
       <h1 id="ptitle">لوحة التحكم</h1>
       <div class="topbar-r">
+        <div id="sub-info-pill" style="display:none;align-items:center;gap:6px;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;color:var(--text)"></div>
         <button class="btn btno btn-sm" id="btn-refresh-top" onclick="manualRefresh()">🔄 تحديث</button>
         <div class="dpill" id="date-lbl"></div>
       </div>
@@ -333,21 +449,26 @@ textarea.fc{resize:vertical;min-height:72px}
           <button class="btn btnp" data-perm="students" onclick="if(requirePerm('students','إضافة طالب'))openSM()">➕ إضافة طالب</button>
         </div>
         <div class="card"><div class="tw"><table>
-          <thead><tr><th>كود</th><th>الاسم</th><th>المجموعة</th><th>المدرس</th><th>هاتف ولي الأمر</th><th>الرسوم</th><th>الرصيد</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+          <thead><tr><th>كود</th><th>الاسم</th><th>المجموعة</th><th>المدرس</th><th>نسبة / قيمة السنتر</th><th>الرسوم</th><th>الرصيد</th><th>الحالة</th><th>إجراءات</th></tr></thead>
           <tbody id="s-tb"></tbody>
         </table></div></div>
       </div>
 
       <!-- ATTENDANCE -->
       <div class="page" id="page-attendance">
-        <div class="filters">
+        <div class="filters" style="flex-wrap:wrap;gap:10px;align-items:center">
           <input type="date" class="fsel" id="att-d" onchange="renderAtt()">
           <select class="fsel" id="att-c" onchange="renderAtt()"><option value="">كل المجموعات</option></select>
           <button class="btn btnp" onclick="saveAtt()">💾 حفظ الحضور</button>
           <span id="att-sum" class="b bb" style="padding:9px 14px"></span>
+          <span style="width:1px;height:28px;background:var(--border);margin:0 4px"></span>
+          <input class="sbi" id="att-code-inp" placeholder="كود الطالب" style="max-width:120px" dir="ltr">
+          <button type="button" class="btn btno btn-sm" onclick="manualAttSet(true)">✅ حضور</button>
+          <button type="button" class="btn btnr btn-sm" onclick="manualAttSet(false)">❌ غياب</button>
         </div>
+        <p class="fs12 tm" style="margin:-6px 0 12px;font-weight:600">يُعرض الطلاب الذين لديهم حصة في اليوم المحدد حسب أيام المجموعة.</p>
         <div class="card"><div class="tw"><table>
-          <thead><tr><th>الطالب</th><th>الكود</th><th>المجموعة</th><th>الحضور</th><th>ملاحظة</th></tr></thead>
+          <thead><tr><th>الطالب</th><th>الكود</th><th>المجموعة</th><th>المدرس</th><th>الحضور</th><th>ملاحظة</th></tr></thead>
           <tbody id="att-tb"></tbody>
         </table></div></div>
       </div>
@@ -373,7 +494,7 @@ textarea.fc{resize:vertical;min-height:72px}
             <span id="ses-clock" style="font-size:13px;color:var(--muted);font-weight:700"></span>
           </div>
           <div class="tw"><table>
-            <thead><tr><th>الطالب</th><th>الكود</th><th>المجموعة</th><th>الوقت</th><th>الحضور</th><th>وقت الحضور</th><th>الانصراف</th><th>ملاحظة</th></tr></thead>
+            <thead><tr><th>الطالب</th><th>الكود</th><th>المجموعة</th><th>الوقت</th><th>الحضور</th><th>مستحق الحصة</th><th>وقت الحضور</th><th>الانصراف</th><th>ملاحظة</th></tr></thead>
             <tbody id="ses-tb"></tbody>
           </table></div>
         </div>
@@ -410,14 +531,36 @@ textarea.fc{resize:vertical;min-height:72px}
       <div class="page" id="page-payments">
         <div class="filters">
           <input class="sbi" id="p-q" placeholder="🔍 ابحث باسم الطالب..." oninput="renderPayments()">
-          <select class="fsel" id="p-fs" onchange="renderPayments()"><option value="">كل الحالات</option><option value="paid">مدفوع</option><option value="partial">جزئي</option><option value="pending">معلق</option></select>
+          <select class="fsel" id="p-fs" onchange="renderPayments()"><option value="">كل الحالات</option><option value="paid">مدفوع</option><option value="partial">جزئي</option><option value="pending">معلق</option><option value="refunded">تم رد المبلغ — استرجاع</option></select>
           <input type="month" class="fsel" id="p-fm" onchange="renderPayments()">
           <button class="btn btnp" data-perm="payments" onclick="if(requirePerm('payments','تسجيل دفعة'))openPM()">➕ تسجيل دفعة</button>
         </div>
         <div class="stats" id="p-stats" style="grid-template-columns:repeat(3,1fr)"></div>
         <div class="card"><div class="tw"><table>
-          <thead><tr><th>الطالب</th><th>المجموعة</th><th>الشهر</th><th>المطلوب</th><th>المدفوع</th><th>المتبقي</th><th>طريقة الدفع</th><th>الحالة</th><th>بواسطة</th><th>إيصال</th></tr></thead>
+          <thead><tr><th>الطالب</th><th>المجموعة</th><th>الشهر</th><th>المطلوب</th><th>المدفوع</th><th>المتبقي</th><th>طريقة الدفع</th><th>الحالة</th><th>بواسطة</th><th>رقم الإيصال</th><th>إيصال / استرجاع</th></tr></thead>
           <tbody id="p-tb"></tbody>
+        </table>        </div></div>
+        <div class="card" data-perm="payments">
+          <div class="ch"><span class="ct">↩️ سجل الاسترجاعات</span><span id="p-refund-sum" class="b br"></span></div>
+          <p class="fs12 tm" style="margin:0 0 10px 0">لتقرير مفصل وفلترة حسب الشهر استخدم صفحة <button type="button" class="btn btno btn-sm" onclick="go('refunds')">↩️ الاسترجاع</button></p>
+          <div class="tw"><table>
+            <thead><tr><th>الطالب</th><th>المجموعة</th><th>المبلغ</th><th>التاريخ</th><th>ملاحظة</th><th>بواسطة</th></tr></thead>
+            <tbody id="p-refunds-tb"></tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- REFUNDS REPORT -->
+      <div class="page" id="page-refunds">
+        <div class="filters">
+          <input type="month" class="fsel" id="rf-fm" onchange="renderRefundsPage()">
+          <input class="sbi" id="rf-q" placeholder="🔍 ابحث باسم الطالب أو الكود..." oninput="renderRefundsPage()">
+          <button class="btn btng" onclick="exportRefundsReport()">🖨️ طباعة التقرير</button>
+        </div>
+        <div class="stats" id="rf-stats" style="grid-template-columns:repeat(2,1fr);margin-bottom:16px"></div>
+        <div class="card"><div class="tw"><table>
+          <thead><tr><th>#</th><th>الطالب</th><th>المجموعة</th><th>المبلغ</th><th>التاريخ</th><th>ملاحظة</th><th>بواسطة</th><th>إجراءات</th></tr></thead>
+          <tbody id="rf-tb"></tbody>
         </table></div></div>
       </div>
 
@@ -458,6 +601,20 @@ textarea.fc{resize:vertical;min-height:72px}
         </table></div></div>
       </div>
 
+      <!-- TEACHER / CENTER SHARE -->
+      <div class="page" id="page-teacher_share">
+        <div class="filters">
+          <input type="month" class="fsel" id="ts-m" onchange="renderTeacherShare()">
+          <span class="fs12 tm" style="font-weight:700">النسبة تُحدَّد من بطاقة كل مدرس (تعديل المدرس). هنا ملخص الشهر.</span>
+        </div>
+        <div class="stats" id="ts-stats" style="grid-template-columns:repeat(4,1fr);margin-bottom:18px"></div>
+        <div class="card"><div class="ch"><span class="ct">👨‍🏫 تفصيل حسب المعلم</span></div>
+        <div class="tw"><table>
+          <thead><tr><th>المعلم</th><th>نوع حصة السنتر</th><th>القيمة</th><th>مدفوعات الشهر</th><th>حصة السنتر</th><th>حصة المعلم</th></tr></thead>
+          <tbody id="ts-tb"></tbody>
+        </table></div></div>
+      </div>
+
       <!-- REPORTS -->
       <div class="page" id="page-reports">
         <div class="filters">
@@ -486,14 +643,14 @@ textarea.fc{resize:vertical;min-height:72px}
       <div class="page" id="page-courses">
         <div class="flex jb aic mb16"><div></div><button class="btn btnp" data-perm="courses" onclick="if(requirePerm('courses','إضافة مجموعة'))openCM()">➕ إضافة مجموعة</button></div>
         <div class="card"><div class="tw"><table>
-          <thead><tr><th>المادة</th><th>المجموعة</th><th>المدرس</th><th>الأيام</th><th>الوقت</th><th>الرسوم</th><th>الطلاب</th><th>إجراءات</th></tr></thead>
+          <thead><tr><th>المادة</th><th>المجموعة</th><th>المدرس</th><th>الأيام</th><th>الوقت</th><th>المدة</th><th>الرسوم</th><th>الطلاب</th><th>إجراءات</th></tr></thead>
           <tbody id="c-tb"></tbody>
         </table></div></div>
       </div>
 
       <!-- USERS -->
       <div class="page" id="page-users">
-        <div class="flex jb aic mb16"><div></div><button class="btn btnp" onclick="openUM()">➕ إضافة مستخدم</button></div>
+        <div class="flex jb aic mb16"><div></div><button class="btn btnp" data-perm="users" onclick="if(requirePerm('users','إضافة مستخدم'))openUM()">➕ إضافة مستخدم</button></div>
         <div class="card"><div class="tw"><table>
           <thead><tr><th>الاسم</th><th>المستخدم</th><th>الدور</th><th>الصلاحيات</th><th>مرات الفتح</th><th>الحالة</th><th>إجراءات</th></tr></thead>
           <tbody id="u-tb"></tbody>
@@ -547,8 +704,8 @@ textarea.fc{resize:vertical;min-height:72px}
 
       <!-- SETTINGS -->
       <div class="page" id="page-settings">
-        <div class="g2">
-          <div class="card">
+        <div>
+          <div class="card" style="margin-bottom:18px">
             <div class="ch"><span class="ct">⚙️ إعدادات السنتر</span></div>
             <div class="cb">
               <div class="fg" style="gap:13px">
@@ -561,15 +718,7 @@ textarea.fc{resize:vertical;min-height:72px}
               <button class="btn btnp mt16" onclick="saveSettings()">💾 حفظ</button>
             </div>
           </div>
-          <div class="card">
-            <div class="ch"><span class="ct">🔒 تغيير كلمة المرور</span></div>
-            <div class="cb">
-              <div class="fl mb16"><label>كلمة المرور الحالية</label><input type="password" class="fc" id="op"></div>
-              <div class="fl mb16"><label>كلمة المرور الجديدة</label><input type="password" class="fc" id="np"></div>
-              <div class="fl" style="margin-bottom:18px"><label>تأكيد كلمة المرور</label><input type="password" class="fc" id="cp"></div>
-              <button class="btn btnp" onclick="changePw()">🔐 تغيير</button>
-            </div>
-          </div>
+
         </div>
         <div class="card" data-perm="shared_database">
           <div class="ch"><span class="ct">📁 قاعدة البيانات (شبكة / عدة مستخدمين)</span></div>
@@ -587,8 +736,38 @@ textarea.fc{resize:vertical;min-height:72px}
           </div>
         </div>
 
+        <!-- موضع الشريط الجانبي -->
+        <div class="card" style="margin-bottom:18px">
+          <div class="ch"><span class="ct">🖥️ موضع شريط التنقل</span></div>
+          <div class="cb">
+            <p class="fs12 tm" style="margin-bottom:16px">اختر موضع شريط القائمة الرئيسية</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" id="layout-grid">
+              <div onclick="applyLayout('side')" id="layout-opt-side" style="cursor:pointer;border-radius:14px;overflow:hidden;border:3px solid transparent;transition:.2s">
+                <div style="background:var(--bg);padding:14px;display:flex;gap:8px;align-items:stretch;height:90px;border-radius:11px">
+                  <div id="layout-side-bar" style="width:22px;background:var(--p);border-radius:6px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:5px">
+                    <div style="height:14px;background:var(--border);border-radius:4px"></div>
+                    <div style="flex:1;background:var(--border);border-radius:4px;opacity:.5"></div>
+                  </div>
+                </div>
+                <div style="padding:8px;text-align:center;font-size:12px;font-weight:800;color:var(--text)">📌 جانبي (يمين)</div>
+              </div>
+              <div onclick="applyLayout('top')" id="layout-opt-top" style="cursor:pointer;border-radius:14px;overflow:hidden;border:3px solid transparent;transition:.2s">
+                <div style="background:var(--bg);padding:14px;display:flex;flex-direction:column;gap:8px;height:90px;border-radius:11px">
+                  <div style="height:16px;background:var(--p);border-radius:6px"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:5px">
+                    <div style="height:12px;background:var(--border);border-radius:4px;width:60%"></div>
+                    <div style="flex:1;background:var(--border);border-radius:4px;opacity:.5"></div>
+                  </div>
+                </div>
+                <div style="padding:8px;text-align:center;font-size:12px;font-weight:800;color:var(--text)">⬆️ علوي (أعلى)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- ثيمات الألوان -->
-        <div class="card">
+        <div class="card" style="margin-bottom:18px">
           <div class="ch"><span class="ct">🎨 ثيمات الألوان</span></div>
           <div class="cb">
             <p class="fs12 tm" style="margin-bottom:16px">اختر ثيم الألوان المناسب للنظام</p>
@@ -729,25 +908,30 @@ textarea.fc{resize:vertical;min-height:72px}
           </div>
 
           <!-- تواصل معنا -->
-          <div class="card" style="margin-bottom:18px">
-            <div class="ch"><span class="ct">📞 تواصل مع المطور</span></div>
+          <div class="card" style="margin-bottom:18px;overflow:hidden">
+            <div style="background:linear-gradient(135deg,#0f2744,#1e3a5f);padding:22px 24px">
+              <div style="color:#fff;font-size:16px;font-weight:900;margin-bottom:4px">📞 تواصل مع المطور</div>
+              <div style="color:rgba(255,255,255,.6);font-size:12px">نحن دائماً هنا لمساعدتك — تواصل معنا الآن</div>
+            </div>
             <div class="cb">
-              <div style="display:flex;flex-direction:column;gap:12px">
-                <a href="https://wa.me/201103763082" target="_blank" style="display:flex;align-items:center;gap:16px;padding:16px 20px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:14px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
-                  <div style="width:46px;height:46px;background:rgba(255,255,255,.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">📲</div>
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/201103763082" target="_blank" style="display:flex;align-items:center;gap:18px;padding:20px 22px;background:linear-gradient(135deg,#1aad5e,#25d366 50%,#1aad5e);border-radius:16px;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.35);transition:.2s;border:1px solid rgba(255,255,255,.15)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 32px rgba(37,211,102,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 24px rgba(37,211,102,.35)'">
+                  <div style="width:54px;height:54px;background:rgba(255,255,255,.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.2)">💬</div>
                   <div style="flex:1">
-                    <div style="color:rgba(255,255,255,.8);font-size:11px;font-weight:800;margin-bottom:3px;letter-spacing:1px">واتساب — متاح 24/7</div>
-                    <div style="color:#fff;font-size:18px;font-weight:900;direction:ltr">01103763082</div>
+                    <div style="color:rgba(255,255,255,.75);font-size:11px;font-weight:800;margin-bottom:5px;letter-spacing:1.5px;text-transform:uppercase">واتساب — متاح 24/7</div>
+                    <div style="color:#fff;font-size:22px;font-weight:900;direction:ltr;letter-spacing:.5px">01103763082</div>
                   </div>
-                  <div style="color:rgba(255,255,255,.6);font-size:22px">←</div>
+                  <div style="background:rgba(255,255,255,.2);border-radius:10px;padding:8px 14px;color:#fff;font-size:13px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.3)">راسلنا ←</div>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=100095476066188" target="_blank" style="display:flex;align-items:center;gap:16px;padding:16px 20px;background:linear-gradient(135deg,#1877f2,#0d5fd8);border-radius:14px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
-                  <div style="width:46px;height:46px;background:rgba(255,255,255,.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0">📘</div>
+                <!-- Facebook Button -->
+                <a href="https://www.facebook.com/profile.php?id=100095476066188" target="_blank" style="display:flex;align-items:center;gap:18px;padding:20px 22px;background:linear-gradient(135deg,#0d5fd8,#1877f2 50%,#0d5fd8);border-radius:16px;text-decoration:none;box-shadow:0 6px 24px rgba(24,119,242,.35);transition:.2s;border:1px solid rgba(255,255,255,.15)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 32px rgba(24,119,242,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 24px rgba(24,119,242,.35)'">
+                  <div style="width:54px;height:54px;background:rgba(255,255,255,.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.2)">📘</div>
                   <div style="flex:1">
-                    <div style="color:rgba(255,255,255,.8);font-size:11px;font-weight:800;margin-bottom:3px;letter-spacing:1px">فيسبوك</div>
-                    <div style="color:#fff;font-size:18px;font-weight:900">System Makers</div>
+                    <div style="color:rgba(255,255,255,.75);font-size:11px;font-weight:800;margin-bottom:5px;letter-spacing:1.5px;text-transform:uppercase">صفحة فيسبوك</div>
+                    <div style="color:#fff;font-size:22px;font-weight:900">System Makers</div>
                   </div>
-                  <div style="color:rgba(255,255,255,.6);font-size:22px">←</div>
+                  <div style="background:rgba(255,255,255,.2);border-radius:10px;padding:8px 14px;color:#fff;font-size:13px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.3)">زيارة الصفحة ←</div>
                 </a>
               </div>
             </div>
@@ -801,6 +985,7 @@ textarea.fc{resize:vertical;min-height:72px}
     </div>
     <div class="receipt-title-bar">🧾 إيصال دفع رسوم</div>
     <div class="receipt-body">
+      <div class="receipt-row"><span class="lbl">رقم الإيصال</span><span class="val fw7" id="r-receipt-no">—</span></div>
       <div class="receipt-row"><span class="lbl">اسم الطالب</span><span class="val" id="r-sname"></span></div>
       <div class="receipt-row"><span class="lbl">كود الطالب</span><span class="val" id="r-scode"></span></div>
       <div class="receipt-row"><span class="lbl">المجموعة</span><span class="val" id="r-sgroup"></span></div>
@@ -831,8 +1016,8 @@ textarea.fc{resize:vertical;min-height:72px}
     <div class="mb"><div class="fg">
       <div class="fl"><label>الاسم الكامل *</label><input class="fc" id="sm-name"></div>
       <div class="fl"><label>كود الطالب</label><input class="fc" id="sm-code" readonly style="background:var(--bg)"></div>
-      <div class="fl"><label>هاتف الطالب</label><input class="fc" id="sm-phone"></div>
-      <div class="fl"><label>هاتف ولي الأمر</label><input class="fc" id="sm-pp"></div>
+      <div class="fl"><label>هاتف الطالب *</label><input class="fc" id="sm-phone" placeholder="8 أرقام على الأقل"></div>
+      <div class="fl"><label>هاتف ولي الأمر *</label><input class="fc" id="sm-pp" placeholder="8 أرقام على الأقل"></div>
       <div class="fl"><label>اسم ولي الأمر</label><input class="fc" id="sm-pn"></div>
       <div class="fl">
         <label>الصف الدراسي</label>
@@ -857,9 +1042,27 @@ textarea.fc{resize:vertical;min-height:72px}
         </select>
         <input class="fc" id="sm-grade" placeholder="اكتب الصف يدوياً..." style="margin-top:6px;display:none">
       </div>
-      <div class="fl"><label>المجموعة</label><select class="fc" id="sm-course" onchange="autoFees()"></select></div>
+      <div class="fl"><label>المجموعة</label><select class="fc" id="sm-course" onchange="autoFees();smSyncRegTeacherFromCourse();syncSmSharePreviewFromCourse()"></select></div>
+      <div class="fl"><label>معلم التسجيل</label><select class="fc" id="sm-reg-teacher"></select></div>
+      <div class="fl full">
+        <label>طريقة احتساب الرسوم</label>
+        <div class="flex gap16" style="flex-wrap:wrap;align-items:center">
+          <label class="flex aic gap6" style="cursor:pointer;font-size:14px"><input type="radio" name="sm-billing" id="sm-bill-month" value="monthly" checked onchange="onSmBillingChange()"> بالشهر</label>
+          <label class="flex aic gap6" style="cursor:pointer;font-size:14px"><input type="radio" name="sm-billing" id="sm-bill-ses" value="per_session" onchange="onSmBillingChange()"> بالحصة</label>
+        </div>
+      </div>
+      <div class="fl full" id="sm-share-preview" style="display:none;background:var(--bg);border-radius:9px;padding:11px 12px;font-size:13px;line-height:1.55;border:1px solid rgba(0,0,0,.06)"></div>
+      <div class="fl"><label>حصة السنتر (لهذا الطالب)</label>
+        <select class="fc" id="sm-share-mode" onchange="syncSmShareMode()">
+          <option value="default">اتبع المعلم (إن وُجدت قيمة على بطاقته)</option>
+          <option value="percent">نسبة مئوية للسنتر من كل دفعة</option>
+          <option value="fixed">مبلغ ثابت للسنتر من كل دفعة</option>
+        </select>
+      </div>
+      <div class="fl full" id="sm-share-val-wrap"><label id="sm-share-val-label">نسبة أو مبلغ حصة السنتر</label><input class="fc" id="sm-share-val" type="number" min="0" step="0.01" placeholder="مثال: 20 تعني 20%"></div>
+      <p class="fs12 tm" style="margin:0 0 10px 0;line-height:1.45"><strong>لحصة سنتر 20%:</strong> اختر «نسبة مئوية…» ثم اكتب <strong>20</strong> في الخانة التالية (لا يكفي اختيار النوع فقط). اترك «اتبع المعلم» فقط إذا كان للمعلم نسبة محفوظة في قاعدة البيانات.</p>
       <div class="fl">
-        <label>الرسوم الشهرية</label>
+        <label id="sm-fees-lbl">الرسوم الشهرية</label>
         <input class="fc" id="sm-fees" type="number" readonly style="background:var(--bg);cursor:not-allowed;color:var(--muted)" placeholder="تُملأ تلقائياً من المجموعة">
         <div id="sm-special-fees-row" style="display:none;margin-top:6px;align-items:center;gap:8px;flex-direction:row" class="flex aic gap8">
           <input type="checkbox" id="sm-special-fees-cb" onchange="toggleSpecialFees(this.checked)" style="width:16px;height:16px;cursor:pointer;accent-color:var(--primary)">
@@ -884,6 +1087,7 @@ textarea.fc{resize:vertical;min-height:72px}
         <label>الرسوم الشهرية</label>
         <input class="fc" id="pm-req" type="number" readonly style="background:var(--bg);cursor:default">
       </div>
+      <div class="fl full" id="pm-billing-hint" style="display:none;background:#eff6ff;border-radius:8px;padding:10px 12px;font-size:13px;font-weight:700;color:#1e40af"></div>
       <div class="fl">
         <label>المبلغ المتبقي على الطالب</label>
         <input class="fc" id="pm-actual-rem" type="number" readonly style="background:#fff8f0;font-weight:800;cursor:default;color:var(--red)">
@@ -905,8 +1109,24 @@ textarea.fc{resize:vertical;min-height:72px}
         <select class="fc" id="pm-method"><option value="cash">💵 كاش</option><option value="transfer">🏦 تحويل بنكي</option><option value="instapay">📱 إنستا باي</option><option value="vodafone">📞 فودافون كاش</option></select>
       </div>
       <div class="fl full"><label>ملاحظة</label><input class="fc" id="pm-note"></div>
+      <div class="fl full"><label>رقم فاتورة / إيصال (اختياري)</label><input class="fc" id="pm-invoice" placeholder="يُولَّد تلقائياً إن تُرك فارغاً — مثال: INV-2026-001"></div>
     </div></div>
     <div class="mf"><button class="btn btno" onclick="CM('mo-p')">إلغاء</button><button class="btn btnp" onclick="savePayment()">💾 حفظ الدفعة</button></div>
+  </div>
+</div>
+
+<!-- Refund -->
+<div class="mo" id="mo-refund">
+  <div class="modal" style="max-width:440px">
+    <div class="mh"><span class="mt">↩️ تسجيل استرجاع مبلغ</span><button class="mc" onclick="CM('mo-refund')">×</button></div>
+    <div class="mb"><div class="fg">
+      <div class="fl full"><label>الطالب</label><input class="fc" id="rf-stu" readonly style="background:var(--bg)"></div>
+      <input type="hidden" id="rf-sid"><input type="hidden" id="rf-pid">
+      <div class="fl"><label>المبلغ المسترجع *</label><input class="fc" id="rf-amt" type="number" step="0.01" min="0.01"></div>
+      <div class="fl"><label>التاريخ</label><input class="fc" id="rf-date" type="date"></div>
+      <div class="fl full"><label>ملاحظة</label><input class="fc" id="rf-note" placeholder="سبب الاسترجاع..."></div>
+    </div></div>
+    <div class="mf"><button class="btn btno" onclick="CM('mo-refund')">إلغاء</button><button class="btn btnp" onclick="saveRefund()">💾 حفظ الاسترجاع</button></div>
   </div>
 </div>
 
@@ -950,8 +1170,11 @@ textarea.fc{resize:vertical;min-height:72px}
       <div class="fl"><label>اسم المجموعة *</label><input class="fc" id="cm-group"></div>
       <div class="fl"><label>المدرس</label><select class="fc" id="cm-teacher"></select></div>
       <div class="fl"><label>الرسوم الشهرية</label><input class="fc" id="cm-fees" type="number"></div>
-      <div class="fl"><label>الأيام</label><input class="fc" id="cm-days"></div>
-      <div class="fl"><label>الوقت</label><input class="fc" id="cm-time"></div>
+      <div class="fl full"><label>أيام الحصة (اختر أكثر من يوم)</label>
+        <div id="cm-days-wrap" class="flex gap8" style="flex-wrap:wrap;padding:10px;background:var(--bg);border-radius:9px"></div>
+      </div>
+      <div class="fl"><label>وقت الحصة</label><select class="fc" id="cm-time"><option value="">— اختر الوقت —</option></select></div>
+      <div class="fl"><label>مدة الحصة (ساعات)</label><input class="fc" id="cm-hours" type="number" step="0.25" min="0.5" value="1.5" title="مثال: 1.5 = ساعة ونصف"></div>
       <div class="fl full"><label>وصف</label><textarea class="fc" id="cm-desc"></textarea></div>
     </div></div>
     <div class="mf"><button class="btn btno" onclick="CM('mo-c')">إلغاء</button><button class="btn btnp" onclick="saveCourse()">💾 حفظ</button></div>
@@ -967,6 +1190,7 @@ textarea.fc{resize:vertical;min-height:72px}
       <div class="fl"><label>التخصص</label><input class="fc" id="tm-subj"></div>
       <div class="fl"><label>رقم الهاتف</label><input class="fc" id="tm-phone"></div>
       <div class="fl"><label>المرتب الشهري</label><input class="fc" id="tm-sal" type="number"></div>
+      <p class="fs12 tm" style="margin:0;line-height:1.5">حصة السنتر من دفعات الطلاب تُحدَّد عند <strong>تسجيل أو تعديل الطالب</strong> وليس من هنا.</p>
       <div class="fl full"><label>ملاحظات</label><textarea class="fc" id="tm-notes"></textarea></div>
     </div></div>
     <div class="mf"><button class="btn btno" onclick="CM('mo-t')">إلغاء</button><button class="btn btnp" onclick="saveTeacher()">💾 حفظ</button></div>
@@ -986,6 +1210,7 @@ textarea.fc{resize:vertical;min-height:72px}
           <option value="admin">مدير عام</option><option value="receptionist">موظف استقبال</option>
           <option value="accountant">محاسب</option><option value="teacher">مدرس</option>
           <option value="trial">تجريبي (محدود الفتح)</option>
+          <option value="dev_master" id="um-role-dev" hidden disabled>مطور النظام (من مطور النظام فقط)</option>
         </select>
       </div>
       <div class="fl" id="um-tfl" style="display:none"><label>ربط بمدرس</label><select class="fc" id="um-tlink"></select></div>
@@ -1069,8 +1294,7 @@ textarea.fc{resize:vertical;min-height:72px}
 // ══════════════════════════════════════════════════
 //  API
 // ══════════════════════════════════════════════════
-// خلي الـ API نسبي عشان يشتغل محلي وأونلاين بنفس الملف
-const API = (location.origin || '') + '/api';
+const API = 'http://127.0.0.1:7788/api';
 let _reloadAllTimer = null;
 let _lastBgReloadAt = 0;
 
@@ -1138,7 +1362,9 @@ function handlePermError(r, fallbackMsg=''){
 // ══════════════════════════════════════════════════
 //  STATE
 // ══════════════════════════════════════════════════
-let CU=null, SETTINGS={}, COURSES=[], STUDENTS=[], TEACHERS=[], PAYMENTS=[], GRADES=[], FOLLOWUPS=[], EXPENSES=[], USERS=[];
+let CU=null, SETTINGS={}, COURSES=[], STUDENTS=[], TEACHERS=[], PAYMENTS=[], REFUNDS=[], GRADES=[], FOLLOWUPS=[], EXPENSES=[], USERS=[];
+let SESSION_BILLING={};
+let sesAlertsIv=null;
 let isAdmin = false;
 let licenseGate = false;
 let editIds = {stu:null, crs:null, tch:null, usr:null};
@@ -1256,6 +1482,28 @@ function toggleAutoDataRefresh(){
 // ══════════════════════════════════════════════════
 //  AUTH
 // ══════════════════════════════════════════════════
+/** يضمن لمطور النظام كل مفاتيح الصلاحيات في الواجهة (بغض النظر عن JSON الفارغ في قاعدة البيانات). */
+function applyDevMasterFullPerms(){
+  if(!CU||CU.role!=='dev_master')return;
+  CU.perms={
+    dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:1,expenses:1,
+    reports:1,teacher_share:1,courses:1,teachers:1,users:1,settings:1,about:1,due:1,
+    manual_delete:1,serial_licenses:1,edit_fees:1,import_export:1,online_users:1,shared_database:1
+  };
+}
+function syncDevMasterRoleOption(){
+  const opt=document.getElementById('um-role-dev');
+  const sel=document.getElementById('um-role');
+  if(!opt||!sel)return;
+  if(CU?.role==='dev_master'){
+    opt.hidden=false;
+    opt.disabled=false;
+  }else{
+    opt.hidden=true;
+    opt.disabled=true;
+    if(sel.value==='dev_master'){ sv('um-role','receptionist'); setRolePerms(); }
+  }
+}
 async function doLogin(){
   const u=v('au'), p=v('ap');
   const r = await api('/auth/login', {username:u, password:p});
@@ -1300,11 +1548,14 @@ async function doLogin(){
   isAdmin = (CU.role === 'admin' || CU.role === 'dev_master');
   document.getElementById('auth').style.display='none';
   document.getElementById('app').style.display='flex';
+  const _at=document.getElementById('auth-topbar'); if(_at) _at.style.display='none';
+  const _af=document.getElementById('auth-footer'); if(_af) _af.style.display='none';
   document.getElementById('sb-nm').textContent = CU.name;
   document.getElementById('sb-rl').textContent = roleLabel(CU.role);
   document.getElementById('sb-av').textContent = CU.name[0];
   applyPerms();
   pingServerBuild();
+  renderSubPill();
   licenseGate = !(CU.role === 'dev_master' || CU.license_active);
   if(licenseGate){
     // منع الوصول لباقي الصفحات قبل تفعيل السريال
@@ -1346,6 +1597,8 @@ function doLogout(){
   CM('mo-license');
   document.getElementById('auth').style.display='flex';
   document.getElementById('app').style.display='none';
+  const _at2=document.getElementById('auth-topbar'); if(_at2) _at2.style.display='flex';
+  const _af2=document.getElementById('auth-footer'); if(_af2) _af2.style.display='flex';
   document.getElementById('ap').value='';
 }
 
@@ -1363,13 +1616,25 @@ function doExitProgram(){
 
 function applyPerms(){
   if(!CU)return;
+  applyDevMasterFullPerms();
+  syncDevMasterRoleOption();
   const p=CU.perms||{};
   const _isAdmin = (CU.role==='admin' || CU.role==='dev_master');
   document.querySelectorAll('.ni[data-p]').forEach(el=>{
     const pg=el.dataset.p;
     if(pg==='dash'||pg==='about'){ el.style.display=''; return; }
     if(pg==='teachers' && CU.role==='teacher'){ el.style.display='none'; return; }
-    if(pg==='serial_licenses'){ el.style.display=(CU.role==='dev_master')?'':'none'; return; }
+    if(CU.role==='dev_master'){
+      if(pg==='serial_licenses'){ el.style.display=''; return; }
+      el.style.display='';
+      return;
+    }
+    if(pg==='refunds'){
+      el.style.display=(_isAdmin||p.payments)?'':'none';
+      return;
+    }
+    if(pg==='serial_licenses'){ el.style.display='none'; return; }
+    if(pg==='teacher_share'){ el.style.display=(_isAdmin||p.teacher_share||p.reports)?'':'none'; return; }
     el.style.display=(_isAdmin||p[pg])?'':'none';
   });
   const nsAdm = document.getElementById('ns-adm');
@@ -1399,10 +1664,18 @@ function applyWritePerms(){
 // فحص صلاحية قبل فتح موديل الكتابة
 function requirePerm(perm, action='هذا الإجراء'){
   if(!CU)return false;
-  if(CU.role==='admin' || CU.role==='dev_master')return true;
+  if(CU.role==='admin')return true;
+  if(CU.role==='dev_master')return true;
   if(CU.perms?.[perm])return true;
   toast('🚫 ليس لديك صلاحية ' + action, 'err');
   return false;
+}
+
+function canManualDelete(){
+  if(!CU)return false;
+  if(CU.role==='admin')return true;
+  if(CU.role==='dev_master')return true;
+  return !!CU.perms?.manual_delete;
 }
 
 // ══════════════════════════════════════════════════
@@ -1512,16 +1785,17 @@ async function renderSerialLicenses(){
 async function loadAll(silent=false){
   if(!silent) loading(true);
   try{
-    const [set,crs,stu,tch,pay,grd,fol,exp,usr] = await Promise.all([
+    const [set,crs,stu,tch,pay,ref,grd,fol,exp,usr] = await Promise.all([
       api('/settings'), api('/courses'), api('/students'),
-      api('/teachers'), api('/payments'), api('/grades'),
-      api('/followups'), api('/expenses'), api('/users'),
+      api('/teachers'), api('/payments'), api('/refunds'),
+      api('/grades'), api('/followups'), api('/expenses'), api('/users'),
     ]);
     SETTINGS  = set.data||{};
     COURSES   = crs.data||[];
     STUDENTS  = stu.data||[];
     TEACHERS  = tch.data||[];
     PAYMENTS  = pay.data||[];
+    REFUNDS   = ref.ok ? (ref.data||[]) : [];
     GRADES    = grd.data||[];
     FOLLOWUPS = fol.data||[];
     EXPENSES  = exp.data||[];
@@ -1541,13 +1815,14 @@ function applySettings(){
 //  NAVIGATION
 // ══════════════════════════════════════════════════
 const TITLES={dash:'لوحة التحكم',students:'إدارة الطلاب',attendance:'الحضور والغياب',sessions:'إدارة الحصص',
-  grades:'الدرجات والتقييم',followup:'متابعة الطلاب',payments:'الرسوم والمدفوعات',
-  expenses:'المصروفات',reports:'التقارير المالية',teachers:'المدرسون',
+  grades:'الدرجات والتقييم',followup:'متابعة الطلاب',payments:'الرسوم والمدفوعات',refunds:'الاسترجاع — التقرير',
+  expenses:'المصروفات',reports:'التقارير المالية',teacher_share:'نسبة السنتر والمعلم',teachers:'المدرسون',
   due:'الطلاب المستحقون للدفع',courses:'المواد والمجموعات',users:'المستخدمون',settings:'الإعدادات',
   import_export:'استيراد وتصدير البيانات',online_users:'المتصلون بالبرنامج',
   serial_licenses:'السريالات والمطور',about:'حول البرنامج'};
 
 function go(name){
+  if(sesAlertsIv){ clearInterval(sesAlertsIv); sesAlertsIv=null; }
   // بوابة الترخيص: منع التنقل لأي صفحة غير "حول البرنامج" قبل تفعيل السريال
   if(licenseGate && CU?.role !== 'dev_master' && name !== 'about'){
     OM('mo-license');
@@ -1566,8 +1841,8 @@ function go(name){
   if(ni)ni.classList.add('on');
   document.getElementById('ptitle').textContent=TITLES[name]||name;
   const rFns={dash:renderDash,students:renderStudents,attendance:renderAtt,sessions:renderSessions,due:renderDue,
-    grades:renderGrades,followup:renderFollowup,payments:renderPayments,
-    expenses:renderExpenses,reports:renderReports,teachers:renderTeachers,
+    grades:renderGrades,followup:renderFollowup,payments:renderPayments,refunds:renderRefundsPage,
+    expenses:renderExpenses,reports:renderReports,teacher_share:renderTeacherShare,teachers:renderTeachers,
     courses:renderCourses,users:renderUsers,settings:renderSettings,serial_licenses:renderSerialLicenses,
     import_export:renderImportExportPage,online_users:renderOnlineUsers,about:()=>{}};
   if(rFns[name])rFns[name]();
@@ -1598,9 +1873,18 @@ function priInfo(p){return{high:{l:'🔴 عالية',c:'br'},medium:{l:'🟡 م�
 function methodLabel(m){return{cash:'💵 كاش',transfer:'🏦 تحويل',instapay:'📱 إنستا باي',vodafone:'📞 فودافون'}[m]||m;}
 
 function studentBalance(sId){
-  const s=getStudent(sId);if(!s)return{req:0,paid:0,rem:0};
-  const paid=PAYMENTS.filter(p=>p.student_id==sId).reduce((a,p)=>a+Number(p.paid||0),0);
-  return{req:Number(s.fees||0),paid,rem:Number(s.fees||0)-paid};
+  const s=getStudent(sId);if(!s)return{req:0,paid:0,rem:0,bm:'monthly'};
+  const paidAll=PAYMENTS.filter(p=>p.student_id==sId).reduce((a,p)=>a+Number(p.paid||0),0);
+  const bm=String(s.billing_mode||'monthly');
+  if(bm==='per_session'){
+    const b=SESSION_BILLING[sId];
+    if(b){
+      return{req:Number(b.total_due||0),paid:Number(b.paid_total||0),rem:Math.max(0,Number(b.remaining||0)),bm};
+    }
+    return{req:0,paid:paidAll,rem:0,bm};
+  }
+  const req=Number(s.fees||0);
+  return{req,paid:paidAll,rem:Math.max(0,req-paidAll),bm:'monthly'};
 }
 function lateStudents(){
   return STUDENTS.filter(s=>{if(s.status!=='active')return false;const{rem}=studentBalance(s.id);return rem>0;});
@@ -1615,13 +1899,192 @@ function populateSel(id,opts,ph='-- اختر --'){
   el.innerHTML=`<option value="">${ph}</option>`+opts.map(o=>`<option value="${o.v}">${o.l}</option>`).join('');
 }
 function popCourses(id,ph='كل المجموعات'){populateSel(id,COURSES.map(c=>({v:c.id,l:`${c.name} - ${c.group_name}`})),ph);}
+function popTeachers(id,ph='— اختر المعلم —'){
+  let list=(TEACHERS||[]).map(t=>({v:t.id,l:t.name||('#'+t.id)}));
+  if(CU?.role==='teacher'&&CU.teacher_link_id)
+    list=list.filter(x=>Number(x.v)===Number(CU.teacher_link_id));
+  populateSel(id,list,ph);
+}
+function smSyncRegTeacherFromCourse(){
+  const cid=parseInt(v('sm-course'),10);
+  const c=getCourse(cid);
+  if(!c||!c.teacher_id){sv('sm-reg-teacher','');return;}
+  sv('sm-reg-teacher',c.teacher_id);
+}
+function syncSmShareMode(){
+  const m=v('sm-share-mode');
+  const inp=document.getElementById('sm-share-val');
+  const lab=document.getElementById('sm-share-val-label');
+  if(!inp)return;
+  if(m==='default'){
+    inp.disabled=true;
+    inp.style.opacity='0.55';
+    inp.value='';
+    inp.placeholder='لا يلزم — الحصة من بيانات المعلم إن وُجدت';
+    if(lab)lab.textContent='القيمة (معطّل في وضع المعلم)';
+  }else{
+    inp.disabled=false;
+    inp.style.opacity='1';
+    if(lab)lab.textContent=(m==='fixed')?'مبلغ حصة السنتر لكل دفعة (جنيه)':'نسبة حصة السنتر لكل دفعة (%)';
+    inp.placeholder=m==='fixed'?'مثال: 50':'مثال: 20 (= 20%)';
+  }
+}
+function onSmBillingChange(){
+  const perSes=document.getElementById('sm-bill-ses')?.checked;
+  const fl=document.getElementById('sm-fees-lbl');
+  if(fl) fl.textContent=perSes?'سعر الحصة (المبلغ بالجنيه)':'الرسوم الشهرية';
+}
+function syncSmSharePreviewFromCourse(){
+  const el=document.getElementById('sm-share-preview');
+  if(!el)return;
+  const cid=parseInt(v('sm-course'),10);
+  const c=getCourse(cid);
+  if(!c||!c.teacher_id){
+    el.style.display='none';el.innerHTML='';return;
+  }
+  const t=(TEACHERS||[]).find(x=>Number(x.id)===Number(c.teacher_id));
+  if(!t){el.style.display='none';return;}
+  el.style.display='';
+  const typ=String(t.center_share_type||'percent').toLowerCase();
+  const val=parseShareValue(t.center_share_value);
+  if(val<=0){
+    el.innerHTML='<strong>📌 لم تُسجَّل حصة سنتر على بطاقة المعلم (أو القيمة 0).</strong><div class="tm fs12" style="margin-top:6px">حدّد حصة السنتر لهذا الطالب من «حصة السنتر (لهذا الطالب)» أدناه (مثلاً نسبة 20%).</div>';
+    return;
+  }
+  const line=typ==='fixed'
+    ? `مرجع من بطاقة المعلم «${t.name||''}»: ${fmt(val)} (مبلغ ثابت)`
+    : `مرجع من بطاقة المعلم «${t.name||''}»: ${val}%`;
+  el.innerHTML='<strong>📊 '+line+'</strong><div class="tm fs12" style="margin-top:6px">يمكنك استبدالها بإعداد خاص بالطالب من «حصة السنتر (لهذا الطالب)» أدناه.</div>';
+}
+async function refreshSessionBillingCache(){
+  SESSION_BILLING={};
+  const ps=(STUDENTS||[]).filter(s=>s.status==='active'&&String(s.billing_mode||'monthly')==='per_session');
+  await Promise.all(ps.map(async s=>{
+    try{
+      const r=await api('/billing/session_totals/'+s.id);
+      if(r.ok&&r.data) SESSION_BILLING[s.id]=r.data;
+    }catch(e){}
+  }));
+}
+function parseShareValue(raw){
+  if(raw===undefined||raw===null)return 0;
+  const s=String(raw).trim().replace(/\s/g,'').replace(',','.');
+  if(s===''||s==='.')return 0;
+  const n=parseFloat(s);
+  return Number.isFinite(n)?n:0;
+}
+function splitPayForStudentPayment(paid,stu,cse){
+  const tid=Number(stu?.reg_teacher_id)||Number(cse?.teacher_id)||0;
+  let tch=tid?(TEACHERS||[]).find(x=>Number(x.id)===tid):null;
+  if(!tch&&cse&&cse.teacher_id!=null&&cse.teacher_id!=='')
+    tch=(TEACHERS||[]).find(x=>Number(x.id)===Number(cse.teacher_id));
+  const st=stu?.center_share_type;
+  const hasSt=st!=null&&String(st).trim()!=='';
+  if(hasSt){
+    return splitPayCenterTeacher(paid,{center_share_type:String(st).trim().toLowerCase(),center_share_value:parseShareValue(stu?.center_share_value)});
+  }
+  return splitPayCenterTeacher(paid,tch);
+}
 function popStudents(id){
   let list=STUDENTS.filter(s=>s.status==='active');
   if(CU?.role==='teacher'&&CU.teacher_link_id)
     list=list.filter(s=>getCourse(s.course_id)?.teacher_id==CU.teacher_link_id);
-  populateSel(id,list.map(s=>({v:s.id,l:`${s.name} (${s.code})`})));
+  populateSel(id,list.map(s=>({v:s.id,l:`${s.name} (${displayStudentCode(s.code)})`})));
 }
 function popTeachers(id,ph='بدون مدرس'){populateSel(id,TEACHERS.map(t=>({v:t.id,l:t.name})),ph);}
+
+const AR_DAY_NAMES=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+function displayStudentCode(code){
+  if(code==null||code==='')return '—';
+  const s=String(code).replace(/^STU-?/i,'').trim();
+  return s||'—';
+}
+function arabicWeekdayForDate(dstr){
+  const d=new Date(dstr+'T12:00:00');
+  if(isNaN(d.getTime()))return '';
+  return AR_DAY_NAMES[d.getDay()];
+}
+function courseHasClassOnDate(course,dstr){
+  if(!course)return false;
+  const day=arabicWeekdayForDate(dstr);
+  if(!course.days||!String(course.days).trim())return true;
+  return String(course.days).indexOf(day)>=0;
+}
+function sessionFeeDueCell(s, rec){
+  if(String(s.billing_mode||'')!=='per_session')
+    return '<span class="tm fs12">—</span>';
+  const fee=Number(s.fees||0);
+  if(!fee)
+    return '<span class="tm fs12">—</span>';
+  if(rec.present)
+    return '<div class="fw7">'+fmt(fee)+'</div><div class="fs11 tm" style="max-width:120px;line-height:1.3">مستحق هذه الحصة (يُجمع مع إجمالي الحضور)</div>';
+  return '<div class="tm fs12">'+fmt(fee)+'</div><div class="fs11 tm">عند تسجيل حضور</div>';
+}
+function phoneDigitsLen(s){return String(s||'').replace(/\D/g,'').length;}
+function validateStudentPhones(){
+  if(phoneDigitsLen(v('sm-phone'))<8){toast('أدخل هاتف الطالب (8 أرقام على الأقل)','err');return false;}
+  if(phoneDigitsLen(v('sm-pp'))<8){toast('أدخل هاتف ولي الأمر (8 أرقام على الأقل)','err');return false;}
+  return true;
+}
+function splitPayCenterTeacher(paid,tch){
+  const typ=String((tch&&tch.center_share_type)||'percent').toLowerCase();
+  const val=parseShareValue(tch&&tch.center_share_value);
+  const p=Number(paid||0);
+  if(p<=0)return [0,0];
+  let cut;
+  if(typ==='fixed')cut=Math.min(Math.max(val,0),p);
+  else cut=Math.round(p*Math.min(100,Math.max(0,val))/100*100)/100;
+  return [cut,Math.round((p-cut)*100)/100];
+}
+function formatStudentCenterShareCell(s){
+  const c=getCourse(s.course_id);
+  const tid=Number(s.reg_teacher_id)||Number(c?.teacher_id)||0;
+  const tch=tid?(TEACHERS||[]).find(x=>Number(x.id)===tid):null;
+  const st=s.center_share_type;
+  const hasSt=st!=null&&String(st).trim()!=='';
+  if(hasSt){
+    const v=parseShareValue(s.center_share_value);
+    if(String(st).toLowerCase()==='fixed')
+      return '<span class="fw7">'+fmt(v)+'</span><div class="fs11 tm">ثابت (على الطالب)</div>';
+    return '<span class="fw7">'+v+'%</span><div class="fs11 tm">نسبة (على الطالب)</div>';
+  }
+  if(tch){
+    const tv=parseShareValue(tch.center_share_value);
+    const tt=String(tch.center_share_type||'percent').toLowerCase();
+    if(tt==='fixed')
+      return '<span class="tm">'+fmt(tv)+'</span><div class="fs11 tm">من المعلم (قديم)</div>';
+    return '<span class="tm">'+tv+'%</span><div class="fs11 tm">من المعلم (قديم)</div>';
+  }
+  return '<span class="b br" style="font-size:11px">لم تُحدَّد</span><div class="fs11 tm">من «تعديل الطالب»</div>';
+}
+function ensureCourseFormBuilt(){
+  const wrap=document.getElementById('cm-days-wrap');
+  if(wrap && !wrap.querySelector('.cm-day-cb')){
+    wrap.innerHTML=AR_DAY_NAMES.map(dn=>'<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px">'
+      +`<input type="checkbox" class="cm-day-cb" value="${dn}"> ${dn}</label>`).join('');
+  }
+  const tsel=document.getElementById('cm-time');
+  if(tsel && tsel.options.length<=1){
+    for(let h=6;h<24;h++){
+      for(let m of[0,30]){
+        const hh=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+        const opt=document.createElement('option');
+        opt.value=hh;opt.textContent=hh;
+        tsel.appendChild(opt);
+      }
+    }
+  }
+}
+function collectCmDays(){
+  const cbs=[...document.querySelectorAll('.cm-day-cb')].filter(x=>x.checked);
+  cbs.sort((a,b)=>AR_DAY_NAMES.indexOf(a.value)-AR_DAY_NAMES.indexOf(b.value));
+  return cbs.map(x=>x.value).join('، ');
+}
+function setCmDaysFromString(str){
+  document.querySelectorAll('.cm-day-cb').forEach(cb=>{
+    cb.checked=!!(str&&String(str).indexOf(cb.value)>=0);
+  });
+}
 
 // ══════════════════════════════════════════════════
 //  DASHBOARD
@@ -1721,18 +2184,14 @@ async function renderDash(){
 
       // كارت آخر الطلاب
       const recStu = [...STUDENTS].sort((a,b)=>b.id-a.id).slice(0,6);
-      html += '<div class="card"><div class="ch"><span class="ct">👥 آخر الطلاب المسجلين</span>'
-        +'<div class="flex gap8 aic">'
-        +(canStu ? '<button class="btn btnp btn-sm" onclick="openSM()">➕ إضافة طالب</button>' : '')
-        +'<button class="btn btno btn-sm" onclick="go(\'students\')">الكل</button>'
-        +'</div></div>'
+      html += '<div class="card"><div class="ch"><span class="ct">👥 آخر الطلاب المسجلين</span></div>'
         +'<div class="cb" style="padding:0 20px">';
       html += recStu.length ? recStu.map(s=>'<div class="psi">'
         +'<div><div class="inm">'+s.name+'</div>'
-        +'<div class="inf">'+s.code+' &bull; '+cName(s.course_id)+'</div></div>'
+        +'<div class="inf">'+displayStudentCode(s.code)+' &bull; '+cName(s.course_id)+'</div></div>'
         +'<span class="b '+(s.status==='active'?'bg':'bm')+'">'+(s.status==='active'?'✓ نشط':'موقوف')+'</span>'
         +'</div>').join('')
-        : '<div class="empty"><div class="ei">👥</div><p>لا يوجد طلاب بعد — <button class="btn btna btn-sm" onclick=\'go(\'students\')\'>إضافة طالب</button></p></div>';
+        : '<div class="empty"><div class="ei">👥</div><p>لا يوجد طلاب بعد — <button class="btn btna btn-sm" onclick=\'go(\'students\')\'>إدارة الطلاب</button></p></div>';
       html += '</div></div>';
 
       html += '</div>'; // end g2
@@ -1886,7 +2345,7 @@ async function renderDash(){
           +'</tr></thead><tbody>'
           +d.late_students.map(s=>'<tr>'
             +'<td><strong>'+s.name+'</strong></td>'
-            +'<td><span class="b bb">'+s.code+'</span></td>'
+            +'<td><span class="b bb">'+displayStudentCode(s.code)+'</span></td>'
             +'<td>'+(s.course_name||'—')+(s.group_name?' - '+s.group_name:'')+'</td>'
             +'<td>'+fmt(s.fees)+'</td>'
             +'<td class="tg fw7">'+fmt(s.total_paid)+'</td>'
@@ -2001,7 +2460,8 @@ function renderStudents(){
   if(cf) document.getElementById('s-fc').value = cf;
 
   let list = STUDENTS.filter(s => {
-    const ok1 = !q || (s.name||'').toLowerCase().includes(q) || (s.code||'').toLowerCase().includes(q);
+    const dc=(displayStudentCode(s.code)||'').toLowerCase();
+    const ok1 = !q || (s.name||'').toLowerCase().includes(q) || (s.code||'').toLowerCase().includes(q) || dc.includes(q);
     const ok2 = !cf || String(s.course_id) === String(cf);
     const ok3 = !sf || s.status === sf;
     return ok1 && ok2 && ok3;
@@ -2022,9 +2482,12 @@ function renderStudents(){
     tb.innerHTML = '<tr><td colspan="9"><div class="empty"><div class="ei">👥</div><p>لا يوجد طلاب</p></div></td></tr>';
     return;
   }
+  const feeModeBadge=(s)=>String(s.billing_mode||'')==='per_session'
+    ?'<br><span class="b ba" style="font-size:10px;margin-top:2px;display:inline-block">بالحصة</span>'
+    :'<br><span class="b bm" style="font-size:10px;margin-top:2px;display:inline-block">بالشهر</span>';
 
   const canEdit = isAdmin || (CU?.perms?.students);
-  const canDelete = isAdmin; // لا حذف للمدرس حتى لو عنده students
+  const canDelete = canManualDelete(); // المدير أو من يملك «حذف السجلات»
   const canPay = isAdmin || (CU?.perms?.payments);
   tb.innerHTML = list.map(s => {
     const c   = getCourse(s.course_id);
@@ -2034,12 +2497,12 @@ function renderStudents(){
       ? '<span class="b bg">✓ نشط</span>'
       : '<span class="b br">✗ موقوف</span>';
     return `<tr>
-      <td><code>${s.code||'—'}</code></td>
-      <td><strong>${s.name}</strong>${s.grade ? `<br><span style="font-size:11px;color:var(--muted)">${s.grade}</span>` : ''}</td>
+      <td><code>${displayStudentCode(s.code)}</code></td>
+      <td><strong>${s.name}</strong>${s.grade ? `<br><span style="font-size:11px;color:var(--muted)">${s.grade}</span>` : ''}${s.parent_phone ? `<br><span class="fs11 tm">ولي الأمر: ${s.parent_phone}</span>` : ''}</td>
       <td>${c ? `${c.name}<br><span style="font-size:11px;color:var(--muted)">${c.group_name}</span>` : '—'}</td>
       <td>${s.teacher_name||'—'}</td>
-      <td>${s.parent_phone||'—'}</td>
-      <td>${fmt(s.fees)}</td>
+      <td>${formatStudentCenterShareCell(s)}</td>
+      <td>${fmt(s.fees)}${feeModeBadge(s)}</td>
       <td style="color:${remColor};font-weight:800">${fmt(bal.rem)}</td>
       <td>${stLabel}</td>
       <td>
@@ -2072,6 +2535,13 @@ function openSM(preStuId=null){
   }
   setGradeCombo('');
   popCourses('sm-course','-- اختر مجموعة --');
+  popTeachers('sm-reg-teacher','— من المجموعة —');
+  const bm=document.getElementById('sm-bill-month'), bs=document.getElementById('sm-bill-ses');
+  if(bm)bm.checked=true;if(bs)bs.checked=false;
+  onSmBillingChange();
+  sv('sm-share-mode','default');sv('sm-share-val','');
+  syncSmShareMode();
+  setTimeout(()=>syncSmSharePreviewFromCourse(),40);
   OM('mo-s');
 }
 
@@ -2083,12 +2553,20 @@ function editStu(id){
   sv('sm-name', s.name); sv('sm-phone', s.phone||'');
   sv('sm-pp', s.parent_phone||''); sv('sm-pn', s.parent_name||'');
   sv('sm-notes', s.notes||'');
-  sv('sm-status', s.status||'active'); sv('sm-code', s.code||'');
+  sv('sm-status', s.status||'active'); sv('sm-code', s.code?displayStudentCode(s.code):'');
   const dateEl=document.getElementById('sm-date');
   dateEl.value=s.date||today(); dateEl.readOnly=true;
   dateEl.style.cssText='background:var(--bg);cursor:not-allowed;color:var(--muted)';
   setGradeCombo(s.grade||'');
   popCourses('sm-course','-- اختر مجموعة --');
+  popTeachers('sm-reg-teacher','— من المجموعة —');
+  const st=s.center_share_type;
+  const stn=st!=null?String(st).trim().toLowerCase():'';
+  if(stn==='fixed'||stn==='percent'){
+    sv('sm-share-mode',stn==='fixed'?'fixed':'percent');
+    sv('sm-share-val',s.center_share_value!=null&&s.center_share_value!==''?s.center_share_value:'');
+  }else{sv('sm-share-mode','default');sv('sm-share-val','');}
+  syncSmShareMode();
   // إظهار/إخفاء صف الرسوم الخاصة حسب الدور
   const spRow=document.getElementById('sm-special-fees-row');
   const spCb=document.getElementById('sm-special-fees-cb');
@@ -2113,7 +2591,15 @@ function editStu(id){
     feesEl.style.cssText='background:var(--bg);cursor:not-allowed;color:var(--muted)';
   }
   sv('sm-fees', s.fees||0);
-  setTimeout(()=>{ sv('sm-course', s.course_id||''); }, 50);
+  if(String(s.billing_mode||'')==='per_session'){if(document.getElementById('sm-bill-ses'))document.getElementById('sm-bill-ses').checked=true;if(document.getElementById('sm-bill-month'))document.getElementById('sm-bill-month').checked=false;}
+  else{if(document.getElementById('sm-bill-month'))document.getElementById('sm-bill-month').checked=true;if(document.getElementById('sm-bill-ses'))document.getElementById('sm-bill-ses').checked=false;}
+  onSmBillingChange();
+  setTimeout(()=>{
+    sv('sm-course', s.course_id||'');
+    if(s.reg_teacher_id)sv('sm-reg-teacher',s.reg_teacher_id);
+    else smSyncRegTeacherFromCourse();
+    syncSmSharePreviewFromCourse();
+  }, 50);
   OM('mo-s');
 }
 
@@ -2153,17 +2639,45 @@ function canEditSpecialFees(){
 
 async function saveStudent(){
   const name=v('sm-name').trim();if(!name){toast('أدخل اسم الطالب','err');return;}
+  if(!validateStudentPhones())return;
   const feesVal = parseFloat(document.getElementById('sm-fees')?.value||'0')||0;
+  const shareMode=v('sm-share-mode');
+  let center_share_type=null,center_share_value=null;
+  if(shareMode==='percent'||shareMode==='fixed'){
+    const raw=String(v('sm-share-val')||'').trim().replace(/\s/g,'').replace(',','.');
+    const num=parseFloat(raw);
+    if(raw===''||!Number.isFinite(num)||num<0){
+      toast('اختر «نسبة مئوية» أو «مبلغ ثابت» ثم أدخل الرقم (مثال: 20 للنسبة 20%)','err');
+      return;
+    }
+    center_share_type=shareMode==='fixed'?'fixed':'percent';
+    center_share_value=num;
+  }
+  const rt=parseInt(v('sm-reg-teacher'),10);
+  const billing_mode=document.getElementById('sm-bill-ses')?.checked?'per_session':'monthly';
   const body={name,phone:v('sm-phone'),parent_phone:v('sm-pp'),parent_name:v('sm-pn'),
     grade:v('sm-grade'),course_id:parseInt(v('sm-course'))||null,
-    fees:feesVal,notes:v('sm-notes'),status:v('sm-status'),date:v('sm-date')};
+    fees:feesVal,notes:v('sm-notes'),status:v('sm-status'),date:v('sm-date'),
+    reg_teacher_id:rt>0?rt:null,center_share_type,center_share_value,billing_mode};
   const action=editIds.stu?'update':'add';
   if(editIds.stu)body.id=editIds.stu;
   const r=await api(`/students/${action}`,body);
   if(handlePermError(r)) return;
-  toast(editIds.stu?'✅ تم تعديل بيانات الطالب':'✅ تم إضافة الطالب');
-  CM('mo-s'); await reloadAndRefresh(); toast(editIds.stu?'✅ تم تعديل بيانات الطالب':'✅ تم إضافة الطالب'); editIds.stu=null; return;
+  if(!r.ok){toast(r.msg||'تعذّر حفظ بيانات الطالب — تحقق من الاتصال أو الصلاحيات','err');return;}
+  const sidForPatch=editIds.stu;
+  if(r.data&&sidForPatch){
+    const ix=STUDENTS.findIndex(x=>Number(x.id)===Number(sidForPatch));
+    if(ix>=0){
+      STUDENTS[ix]={...STUDENTS[ix],
+        center_share_type:r.data.center_share_type!=null?r.data.center_share_type:null,
+        center_share_value:r.data.center_share_value!=null&&r.data.center_share_value!==''?Number(r.data.center_share_value):null};
+    }
+  }
+  toast(sidForPatch?'✅ تم تعديل بيانات الطالب':'✅ تم إضافة الطالب');
   editIds.stu=null;
+  CM('mo-s');
+  await reloadAndRefresh();
+  if(sidForPatch) renderStudents();
 }
 async function delStu(id){
   if(!confirm('هل أنت متأكد من حذف هذا الطالب؟'))return;
@@ -2174,14 +2688,16 @@ async function delStu(id){
 // ── إعادة تحميل البيانات وتحديث الصفحة الحالية ──
 async function reloadAndRefresh(pages=[]){
   const silent = !!pages && pages.__silent === true;
-  const [stuR,crsR,payR,expR,folR,grdR,tchR,usrR] = await Promise.all([
-    api('/students'), api('/courses'), api('/payments'),
+  const [stuR,crsR,payR,refR,expR,folR,grdR,tchR,usrR] = await Promise.all([
+    api('/students'), api('/courses'), api('/payments'), api('/refunds'),
     api('/expenses'), api('/followups'), api('/grades'),
     api('/teachers'), api('/users')
   ]);
   if(stuR.ok) STUDENTS  = stuR.data||[];
   if(crsR.ok) COURSES   = crsR.data||[];
   if(payR.ok) PAYMENTS  = payR.data||[];
+  if(refR.ok) REFUNDS  = refR.data||[];
+  await refreshSessionBillingCache();
   if(expR.ok) EXPENSES  = expR.data||[];
   if(folR.ok) FOLLOWUPS = folR.data||[];
   if(grdR.ok) GRADES    = grdR.data||[];
@@ -2193,8 +2709,8 @@ async function reloadAndRefresh(pages=[]){
   if(activePage){
     const pageId = activePage.id.replace('page-','');
     const rFns = {dash:renderDash, students:renderStudents, attendance:renderAtt, sessions:renderSessions,
-      grades:renderGrades, followup:renderFollowup, payments:renderPayments,
-      expenses:renderExpenses, reports:renderReports, teachers:renderTeachers,
+      grades:renderGrades, followup:renderFollowup, payments:renderPayments, refunds:renderRefundsPage,
+      expenses:renderExpenses, reports:renderReports, teacher_share:renderTeacherShare, teachers:renderTeachers,
       courses:renderCourses, users:renderUsers, due:renderDue,
       import_export:renderImportExportPage, online_users:renderOnlineUsers, about:()=>{}};
     if(rFns[pageId]) rFns[pageId]();
@@ -2221,47 +2737,89 @@ async function reloadStudents(){
 // ══════════════════════════════════════════════════
 //  ATTENDANCE
 // ══════════════════════════════════════════════════
+function attListForScreen(){
+  const date=v('att-d')||today();
+  const cf=v('att-c');
+  let stus=STUDENTS.filter(s=>s.status==='active'&&s.course_id);
+  stus=stus.filter(s=>{
+    const c=getCourse(s.course_id);
+    return courseHasClassOnDate(c,date);
+  });
+  if(cf)stus=stus.filter(s=>String(s.course_id)===String(cf));
+  if(CU?.role==='teacher'&&CU.teacher_link_id)stus=stus.filter(s=>getCourse(s.course_id)?.teacher_id==CU.teacher_link_id);
+  return stus;
+}
+function recalcAttSumFromDom(){
+  let cnt=0,total=0;
+  document.querySelectorAll('input[type=checkbox][id^="att-"]').forEach(el=>{
+    if(!/^att-\d+$/.test(el.id))return;
+    total++;
+    if(el.checked)cnt++;
+  });
+  const el=document.getElementById('att-sum');
+  if(el)el.textContent=`حاضر: ${cnt} / ${total}`;
+}
+function findStudentByAttCode(raw){
+  const t=(raw||'').trim();
+  if(!t)return null;
+  const norm=t.replace(/^STU-?/i,'').trim();
+  return STUDENTS.find(s=>{
+    const dc=displayStudentCode(s.code);
+    return dc===norm||String(s.code||'')===t;
+  });
+}
+function manualAttSet(present){
+  const inp=document.getElementById('att-code-inp');
+  const s=findStudentByAttCode(inp&&inp.value);
+  if(!s){toast('كود غير صحيح','err');return;}
+  const chk=document.getElementById('att-'+s.id);
+  if(!chk){toast('الطالب ليس ضمن حصص هذا اليوم','err');return;}
+  chk.checked=!!present;
+  const lbl=document.getElementById('att-lbl-'+s.id);
+  if(lbl)lbl.textContent=present?'✅ حاضر':'❌ غائب';
+  if(inp)inp.value='';
+  recalcAttSumFromDom();
+  toast(present?'✅ تم تسجيل الحضور':'تم تسجيل الغياب');
+}
 async function renderAtt(){
   popCourses('att-c');
   const date=v('att-d')||today();
-  const cf=v('att-c');
-  let stus=STUDENTS.filter(s=>s.status==='active');
-  if(cf)stus=stus.filter(s=>s.course_id==cf);
-  if(CU?.role==='teacher'&&CU.teacher_link_id)stus=stus.filter(s=>getCourse(s.course_id)?.teacher_id==CU.teacher_link_id);
+  let stus=attListForScreen();
 
-  // Load existing attendance for this date
   const r=await api(`/attendance/${date}`);
   const attMap={};(r.data||[]).forEach(a=>{attMap[a.student_id]={present:!!a.present,note:a.note||''};});
 
-  const pCnt=Object.values(attMap).filter(a=>a.present).length;
-  document.getElementById('att-sum').textContent=`حاضر: ${pCnt} / ${stus.length}`;
-
   const tb=document.getElementById('att-tb');
-  if(!stus.length){tb.innerHTML=`<tr><td colspan="5"><div class="empty"><div class="ei">✅</div><p>لا يوجد طلاب</p></div></td></tr>`;return;}
+  if(!stus.length){
+    document.getElementById('att-sum').textContent='حاضر: 0 / 0';
+    tb.innerHTML=`<tr><td colspan="6"><div class="empty"><div class="ei">📅</div><p>لا يوجد طلاب لديهم حصة في هذا اليوم (حسب جدول المجموعة)</p></div></td></tr>`;
+    return;
+  }
+
   tb.innerHTML=stus.map(s=>{
     const rec=attMap[s.id]||{present:true,note:''};
     return`<tr>
       <td><strong>${s.name}</strong></td>
-      <td><span class="b bb">${s.code}</span></td>
+      <td><span class="b bb">${displayStudentCode(s.code)}</span></td>
       <td>${s.course_name||'—'} - ${s.group_name||''}</td>
+      <td>${s.teacher_name||'—'}</td>
       <td>
         <label class="sw"><input type="checkbox" id="att-${s.id}" ${rec.present?'checked':''}><span class="sl"></span></label>
         <span id="att-lbl-${s.id}" style="margin-right:10px;font-size:13px">${rec.present?'✅ حاضر':'❌ غائب'}</span>
       </td>
-      <td><input class="fc" style="max-width:180px" id="att-n-${s.id}" value="${rec.note}" placeholder="ملاحظة..."></td>
+      <td><input class="fc" style="max-width:180px" id="att-n-${s.id}" value="${(rec.note||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" placeholder="ملاحظة..."></td>
     </tr>`;
   }).join('');
   stus.forEach(s=>{
     const chk=document.getElementById('att-'+s.id);
     const lbl=document.getElementById('att-lbl-'+s.id);
-    if(chk&&lbl)chk.addEventListener('change',()=>{lbl.textContent=chk.checked?'✅ حاضر':'❌ غائب';});
+    if(chk&&lbl)chk.addEventListener('change',()=>{lbl.textContent=chk.checked?'✅ حاضر':'❌ غائب';recalcAttSumFromDom();});
   });
+  recalcAttSumFromDom();
 }
 async function saveAtt(){
   const date=v('att-d')||today();
-  const cf=v('att-c');
-  let stus=STUDENTS.filter(s=>s.status==='active');
-  if(cf)stus=stus.filter(s=>s.course_id==cf);
+  const stus=attListForScreen();
   const records=stus.map(s=>{
     const chk=document.getElementById('att-'+s.id);
     const n=document.getElementById('att-n-'+s.id);
@@ -2298,7 +2856,7 @@ function renderGrades(){
       <td>${pct}%</td>
       <td><span class="b ${gi.c}">${gi.l}</span></td>
       <td>${g.date||'—'}</td>
-      <td><button class="btn btnr btn-sm" onclick="delGrade(${g.id})">🗑️</button></td>
+      <td>${canManualDelete() ? `<button class="btn btnr btn-sm" onclick="delGrade(${g.id})">🗑️</button>` : '—'}</td>
     </tr>`;
   }).join('');
 }
@@ -2356,7 +2914,7 @@ function renderFollowup(){
       +'<td>'+(f.date||'—')+'</td>'
       +'<td class="fs12 tm">'+(f.by_user||'—')+'</td>'
       +'<td>'+waBtn+'</td>'
-      +'<td><button class="btn btnr btn-sm" onclick="delFollowup('+f.id+')">🗑️</button></td>'
+      +'<td>'+(canManualDelete()?'<button class="btn btnr btn-sm" onclick="delFollowup('+f.id+')">🗑️</button>':'—')+'</td>'
       +'</tr>';
   }).join('');
 }
@@ -2422,13 +2980,21 @@ function renderDue(){
   if(cf) allStudents = allStudents.filter(s => s.course_id == cf);
 
   const rows = allStudents.map(s => {
+    if(String(s.billing_mode||'')==='per_session'){
+      const bal=studentBalance(s.id);
+      const fees=Number(bal.req||0);
+      const paidThisMonth=Number(bal.paid||0);
+      const remaining=Math.max(0,Number(bal.rem||0));
+      return { s, fees, paidThisMonth, remaining,
+        status: remaining <= 0 ? 'paid' : paidThisMonth > 0 ? 'partial' : 'none', ps:true };
+    }
     const paidThisMonth = PAYMENTS
       .filter(p => p.student_id == s.id && p.month === month)
       .reduce((a,p) => a + Number(p.paid||0), 0);
     const fees    = Number(s.fees || 0);
     const remaining = Math.max(0, fees - paidThisMonth);
     return { s, fees, paidThisMonth, remaining,
-      status: remaining <= 0 ? 'paid' : paidThisMonth > 0 ? 'partial' : 'none' };
+      status: remaining <= 0 ? 'paid' : paidThisMonth > 0 ? 'partial' : 'none', ps:false };
   });
 
   // إحصائيات
@@ -2460,9 +3026,9 @@ function renderDue(){
   tb.innerHTML = dueRows.map((r,i) => `<tr>
     <td class="fw7 tm">${i+1}</td>
     <td><strong>${r.s.name}</strong></td>
-    <td><span class="b bb">${r.s.code}</span></td>
+    <td><span class="b bb">${displayStudentCode(r.s.code)}</span></td>
     <td>${cName(r.s.course_id)}</td>
-    <td class="fw7">${fmt(r.fees)}</td>
+    <td class="fw7">${fmt(r.fees)}${r.ps?'<div class="fs11 tm">محاسبة بالحصة</div>':''}</td>
     <td class="tg fw7">${fmt(r.paidThisMonth)}</td>
     <td class="tr fw7">${fmt(r.remaining)}</td>
     <td><span class="b ${stMap[r.status]}">${stLbl[r.status]}</span></td>
@@ -2494,7 +3060,7 @@ function exportDuePDF(){
     <p>قائمة المستحقات — شهر ${month}</p>
     <table><thead><tr><th>#</th><th>الطالب</th><th>الكود</th><th>المجموعة</th><th>الرسوم</th><th>المدفوع</th><th>المتبقي</th><th>الحالة</th></tr></thead>
     <tbody>${rows.map((r,i)=>`<tr>
-      <td>${i+1}</td><td>${r.s.name}</td><td>${r.s.code}</td><td>${cName(r.s.course_id)}</td>
+      <td>${i+1}</td><td>${r.s.name}</td><td>${displayStudentCode(r.s.code)}</td><td>${cName(r.s.course_id)}</td>
       <td>${r.fees}</td>
       <td class="${r.paid>=r.fees?'paid':r.paid>0?'partial':'none'}">${r.paid}</td>
       <td class="${r.rem>0?'none':'paid'}">${r.rem}</td>
@@ -2507,8 +3073,7 @@ function exportDuePDF(){
 
 function canDeletePayment(){
   if(!CU) return false;
-  // المدير والمن لديه صلاحية المدفوعات
-  return CU.role === 'admin' || CU.perms?.payments;
+  return canManualDelete() && (CU.role === 'admin' || CU.perms?.payments);
 }
 
 async function deletePayment(id){
@@ -2523,6 +3088,139 @@ async function deletePayment(id){
   if(handlePermError(r)) return;
   toast('🗑️ تم حذف الدفعة','err');
   await reloadAndRefresh();
+}
+
+function openRefund(payId){
+  if(!requirePerm('payments','تسجيل استرجاع'))return;
+  const p=PAYMENTS.find(x=>x.id==payId);
+  if(!p)return;
+  const s=getStudent(p.student_id);
+  sv('rf-stu', (s?s.name:'—')+' — '+displayStudentCode(s?.code));
+  sv('rf-sid', String(p.student_id));
+  sv('rf-pid', String(p.id));
+  sv('rf-amt', String(p.paid||0));
+  sv('rf-date', today());
+  sv('rf-note','');
+  OM('mo-refund');
+}
+async function saveRefund(){
+  const sid=parseInt(v('rf-sid'),10);
+  const amt=parseFloat(String(v('rf-amt')||'').replace(/,/g,'.'));
+  if(!sid||isNaN(amt)||amt<=0){toast('أدخل مبلغ استرجاع صحيح','err');return;}
+  const payload={
+    student_id:sid,amount:amt,date:v('rf-date'),note:v('rf-note'),
+    payment_id:parseInt(v('rf-pid'),10)||null,by:CU?.name||''
+  };
+  let r=await api('/refunds/save',payload);
+  if(!r.ok && String(r.msg||'').indexOf('مسار غير موجود')>=0)
+    r=await api('/student_refund/save',payload);
+  if(!r.ok && String(r.msg||'').indexOf('مسار غير موجود')>=0)
+    r=await api('/payments/refund_save',payload);
+  if(handlePermError(r))return;
+  if(!r.ok){toast(r.msg||'تعذّر تسجيل الاسترجاع — أعد تشغيل server.py المحدث (بناء refunds-save-v5)','err');return;}
+  toast('✅ تم تسجيل الاسترجاع');
+  CM('mo-refund');
+  await reloadAndRefresh();
+}
+function renderRefundsTable(){
+  const tb=document.getElementById('p-refunds-tb');
+  const sum=document.getElementById('p-refund-sum');
+  if(!tb)return;
+  const list=REFUNDS||[];
+  const tot=list.reduce((a,x)=>a+Number(x.amount||0),0);
+  if(sum)sum.textContent='إجمالي: '+fmt(tot);
+  if(!list.length){tb.innerHTML='<tr><td colspan="6"><div class="empty"><p>لا توجد استرجاعات مسجّلة</p></div></td></tr>';return;}
+  tb.innerHTML=list.map(r=>`<tr>
+    <td><strong>${r.student_name||'—'}</strong></td>
+    <td>${(r.course_name||'—')+(r.group_name?' — '+r.group_name:'')}</td>
+    <td class="tr fw7">${fmt(r.amount)}</td>
+    <td>${r.date||'—'}</td>
+    <td class="fs12">${r.note||'—'}</td>
+    <td class="tm fs12">${r.by_user||'—'}</td>
+  </tr>`).join('');
+}
+function renderRefundsPage(){
+  if(!CU || (!isAdmin && !CU?.perms?.payments)){
+    const tb=document.getElementById('rf-tb');
+    if(tb) tb.innerHTML='<tr><td colspan="8"><div class="empty"><p>لا صلاحية لعرض الاسترجاع</p></div></td></tr>';
+    return;
+  }
+  const fmEl=document.getElementById('rf-fm');
+  if(fmEl && !fmEl.value) fmEl.value=thisMonth();
+  const q=(v('rf-q')||'').toLowerCase();
+  const mf=v('rf-fm');
+  let list=REFUNDS||[];
+  if(mf) list=list.filter(r=>(r.date||'').startsWith(mf));
+  if(q) list=list.filter(r=>{
+    const nm=(r.student_name||'').toLowerCase();
+    const cd=(displayStudentCode(r.student_code||'')||'').toLowerCase();
+    return nm.includes(q)||cd.includes(q);
+  });
+  const sum=list.reduce((a,x)=>a+Number(x.amount||0),0);
+  const st=document.getElementById('rf-stats');
+  if(st) st.innerHTML=`
+    <div class="sc ca"><div class="scic a">↩️</div><div><div class="scv">${list.length}</div><div class="scl">عمليات الاسترجاع (حسب الفلتر)</div></div></div>
+    <div class="sc cr"><div class="scic r">💰</div><div><div class="scv">${fmt(sum)}</div><div class="scl">إجمالي المبالغ المسترجعة</div></div></div>`;
+  const tb=document.getElementById('rf-tb');
+  if(!tb) return;
+  if(!list.length){
+    tb.innerHTML='<tr><td colspan="8"><div class="empty"><div class="ei">↩️</div><p>لا توجد استرجاعات في الفترة المحددة</p></div></td></tr>';
+    return;
+  }
+  const canPay=CU?.role==='admin'||CU?.role==='dev_master'||CU?.perms?.payments;
+  tb.innerHTML=list.map((r,i)=>`<tr>
+    <td class="tm">${i+1}</td>
+    <td><strong>${r.student_name||'—'}</strong><br><span class="fs11 tm">${displayStudentCode(r.student_code)}</span></td>
+    <td>${(r.course_name||'—')+(r.group_name?' — '+r.group_name:'')}</td>
+    <td class="tr fw7">${fmt(r.amount)}</td>
+    <td>${r.date||'—'}</td>
+    <td class="fs12">${r.note||'—'}</td>
+    <td class="tm fs12">${r.by_user||'—'}</td>
+    <td><div class="flex gap8" style="flex-wrap:wrap;justify-content:flex-end">
+      ${canPay&&r.payment_id?`<button type="button" class="btn btnp btn-sm" onclick="revertRefund(${r.id})" title="إرجاع المبلغ لسجل الدفع وإزالة من الاسترجاع">↩️ رد للدفع</button>`:''}
+      ${canPay&&canManualDelete()&&!r.payment_id?`<button type="button" class="btn btnr btn-sm" onclick="deleteRefundRecord(${r.id})" title="حذف السجل (غير مرتبط بدفعة)">🗑️</button>`:''}
+    </div></td>
+  </tr>`).join('');
+}
+async function revertRefund(id){
+  if(!requirePerm('payments','رد الاسترجاع للدفعة'))return;
+  if(!confirm('رد هذا الاسترجاع للدفعة؟ سيُعاد المبلغ إلى سجل الدفع ويُحذف السطر من قائمة الاسترجاع.'))return;
+  const r=await api('/refunds/revert',{id});
+  if(handlePermError(r))return;
+  if(!r.ok){toast(r.msg||'تعذّر التنفيذ','err');return;}
+  toast('✅ '+(r.msg||''));
+  await reloadAndRefresh();
+}
+async function deleteRefundRecord(id){
+  if(!canManualDelete()){toast('🚫 حذف السجلات غير مسموح لحسابك','err');return;}
+  if(!confirm('حذف سجل الاسترجاع؟ (متاح فقط للسجلات غير المرتبطة بدفعة)'))return;
+  const r=await api('/refunds/delete',{id});
+  if(handlePermError(r))return;
+  if(!r.ok){toast(r.msg||'تعذّر الحذف','err');return;}
+  toast('🗑️ تم الحذف','err');
+  await reloadAndRefresh();
+}
+function exportRefundsReport(){
+  if(!requirePerm('payments','تصدير تقرير الاسترجاع'))return;
+  const mf=v('rf-fm');
+  const q=(v('rf-q')||'').toLowerCase();
+  let list=REFUNDS||[];
+  if(mf) list=list.filter(r=>(r.date||'').startsWith(mf));
+  if(q) list=list.filter(r=>((r.student_name||'')+' '+(r.student_code||'')).toLowerCase().includes(q));
+  const sum=list.reduce((a,x)=>a+Number(x.amount||0),0);
+  const win=window.open('','_blank','width=800,height=640');
+  win.document.write(`<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8">
+    <title>تقرير الاسترجاع</title>
+    <style>body{font-family:Arial,sans-serif;padding:20px;direction:rtl}
+    h2{text-align:center} .sum{text-align:center;margin:12px 0;font-weight:800}
+    table{width:100%;border-collapse:collapse} th,td{border:1px solid #ccc;padding:8px;font-size:13px;text-align:right}
+    th{background:#f0f4f8}</style></head><body>
+    <h2>${SETTINGS.center_name||'السنتر'} — تقرير الاسترجاع</h2>
+    <p class="sum">الفترة: ${mf||'الكل'} — الإجمالي: ${sum.toLocaleString('ar-EG')} ${cur()}</p>
+    <table><thead><tr><th>#</th><th>الطالب</th><th>المجموعة</th><th>المبلغ</th><th>التاريخ</th><th>ملاحظة</th><th>بواسطة</th></tr></thead><tbody>
+    ${list.map((r,i)=>`<tr><td>${i+1}</td><td>${r.student_name||'—'}</td><td>${(r.course_name||'')+(r.group_name?' — '+r.group_name:'')}</td><td>${r.amount}</td><td>${r.date||''}</td><td>${(r.note||'').replace(/</g,'')}</td><td>${r.by_user||''}</td></tr>`).join('')}
+    </tbody></table><br><button onclick="window.print()" style="padding:10px 20px">🖨️ طباعة</button></body></html>`);
+  win.document.close();
 }
 
 async function fixOldPayments(){
@@ -2555,10 +3253,10 @@ function renderPayments(){
     <div class="sc ca"><div class="scic a">📋</div><div><div class="scv">${totReq.toLocaleString()}</div><div class="scl">إجمالي المطلوب (${cur()})</div></div></div>
     <div class="sc cr"><div class="scic r">⚠️</div><div><div class="scv">${Math.max(0,totReq-totPaid).toLocaleString()}</div><div class="scl">إجمالي المتبقي (${cur()})</div></div></div>
   `;
-  const slM={paid:'bg',partial:'ba',pending:'br'};
-  const slL={paid:'✅ مدفوع',partial:'📊 جزئي',pending:'⏳ معلق'};
+  const slM={paid:'bg',partial:'ba',pending:'br',refunded:'ba'};
+  const slL={paid:'✅ مدفوع',partial:'📊 جزئي',pending:'⏳ معلق',refunded:'↩️ تم رد المبلغ — استرجاع'};
   const tb=document.getElementById('p-tb');
-  if(!list.length){tb.innerHTML=`<tr><td colspan="10"><div class="empty"><div class="ei">💰</div><p>لا توجد مدفوعات</p></div></td></tr>`;return;}
+  if(!list.length){tb.innerHTML=`<tr><td colspan="11"><div class="empty"><div class="ei">💰</div><p>لا توجد مدفوعات</p></div></td></tr>`;return;}
   tb.innerHTML=list.map(p=>{
     const rem=Number(p.required||0)-Number(p.paid||0);
     return`<tr>
@@ -2571,19 +3269,24 @@ function renderPayments(){
       <td>${methodLabel(p.method)}</td>
       <td><span class="b ${slM[p.status]||'bm'}">${slL[p.status]||p.status}</span></td>
       <td><span style="font-size:12px;color:var(--muted)">${p.by_user||'—'}</span></td>
+      <td class="fs12 tm">${p.receipt_no?`<span class="b bb">${p.receipt_no}</span>`:'—'}</td>
       <td>
         <div class="flex gap8">
           <button class="btn btno btn-sm" onclick="showReceipt(${p.id})" title="طباعة إيصال">🖨️</button>
+          ${(CU?.role==='admin'||CU?.role==='dev_master'||CU?.perms?.payments)&&Number(p.paid||0)>0.01&&p.status!=='refunded'?`<button class="btn btna btn-sm" onclick="openRefund(${p.id})" title="استرجاع">↩️</button>`:''}
           ${canDeletePayment() ? `<button class="btn btnr btn-sm" onclick="deletePayment(${p.id})" title="حذف الدفعة">🗑️</button>` : ''}
         </div>
       </td>
     </tr>`;
   }).join('');
+  renderRefundsTable();
 }
 
 function openPM(preStuId=null, preMonth=null){
   popStudents('pm-s');
-  ['pm-paid','pm-req','pm-actual-rem','pm-note'].forEach(f=>sv(f,''));
+  ['pm-paid','pm-req','pm-actual-rem','pm-note','pm-invoice'].forEach(f=>sv(f,''));
+  const pmHint=document.getElementById('pm-billing-hint');
+  if(pmHint){pmHint.style.display='none';pmHint.textContent='';}
   const errEl=document.getElementById('pm-paid-err');
   if(errEl){errEl.style.display='none';errEl.style.background='#fee2e2';errEl.style.color='#dc2626';}
   // Reset paid input state (might have been locked from previous fully-paid student)
@@ -2621,6 +3324,17 @@ async function fillPFees(){
   // اجلب المتبقي من السيرفر مرتبط بالشهر المحدد (POST عشان يبعت month في الـ body بشكل مضمون)
   const balR = await api('/balance/check_month', {student_id: sid, month});
   const bal  = balR.data || {};
+  const pmHint=document.getElementById('pm-billing-hint');
+  if(pmHint){
+    if(bal.billing_mode==='per_session'){
+      pmHint.style.display='block';
+      pmHint.textContent=`محاسبة بالحصة: ${bal.session_count||0} حصة مسجّلة حضورها × ${fmt(bal.session_fee||0)} = إجمالي مستحق ${fmt(bal.monthly_fees||0)} — المدفوع تراكمياً ${fmt(bal.paid_this_month||0)} — المتبقي ${fmt(bal.remaining_this_month||0)}`;
+      sv('pm-req', bal.monthly_fees||0);
+    }else{
+      pmHint.style.display='none';
+      pmHint.textContent='';
+    }
+  }
   const actualRem  = typeof bal.remaining_this_month === 'number' ? bal.remaining_this_month : Number(s.fees||0);
   const paidMonth  = typeof bal.paid_this_month === 'number' ? bal.paid_this_month : 0;
 
@@ -2643,7 +3357,7 @@ async function fillPFees(){
     if(errEl){
       errEl.style.display='block';
       errEl.style.background='#d1fae5'; errEl.style.color='#065f46';
-      errEl.textContent=`✅ تم سداد رسوم شهر ${month} بالكامل (${fmt(s.fees)}) — اختر شهراً آخر`;
+      errEl.textContent=`✅ الطالب دفع بالفعل الرسوم المطلوبة لشهر ${month} (${fmt(s.fees)}) — اختر شهراً آخر لتسجيل دفعة`;
     }
     if(saveBtn) saveBtn.disabled=true;
     const remPrev=document.getElementById('pm-rem-preview');
@@ -2707,7 +3421,7 @@ async function savePayment(){
   const actualRem = parseFloat(document.getElementById('pm-actual-rem')?.value);
   if(!isNaN(actualRem)){
     if(actualRem <= 0){
-      toast('✅ هذا الشهر مسدد بالكامل — اختر شهراً آخر','warn');
+      toast('الطالب دفع بالفعل الرسوم المطلوبة لهذا الشهر — اختر شهراً آخر لتسجيل دفعة جديدة','warn');
       return;
     }
     if(paid <= 0){
@@ -2721,11 +3435,13 @@ async function savePayment(){
   }
   // required = المتبقي لهذا الشهر (مش الرسوم الكاملة)
   const reqToSend = parseFloat(document.getElementById('pm-actual-rem')?.value) || parseFloat(v('pm-req')) || 0;
+  const inv=(v('pm-invoice')||'').trim();
   const r=await api('/payments/add',{student_id:sid,paid,required:reqToSend,
-    date:v('pm-date'),month:v('pm-month'),method:v('pm-method'),note:v('pm-note'),by:CU?.name});
+    date:v('pm-date'),month:v('pm-month'),method:v('pm-method'),note:v('pm-note'),by:CU?.name,
+    ...(inv?{invoice_no:inv}:{})});
   if(handlePermError(r)) return;
+  if(!r.ok){toast(r.msg||'تعذّر تسجيل الدفعة','err');return;}
   CM('mo-p'); await reloadAndRefresh();
-  // Auto-show receipt
   if(r.data?.id) showReceipt(r.data.id);
 }
 
@@ -2744,8 +3460,9 @@ async function showReceipt(payId){
   // Set receipt content
   document.getElementById('r-center-name').textContent='🎓 '+(SETTINGS.center_name||'سنتر الدروس الخصوصية');
   document.getElementById('r-center-phone').textContent=SETTINGS.phone||'';
+  document.getElementById('r-receipt-no').textContent=p.receipt_no||('سجل #'+p.id);
   document.getElementById('r-sname').textContent=s?.name||p.student_name||'—';
-  document.getElementById('r-scode').textContent=s?.code||p.student_code||'—';
+  document.getElementById('r-scode').textContent=displayStudentCode(s?.code||p.student_code||'');
   document.getElementById('r-sgroup').textContent=p.course_name?`${p.course_name} - ${p.group_name}`:'—';
   document.getElementById('r-month').textContent=p.month||'—';
   document.getElementById('r-required').textContent=fmt(p.required);
@@ -2794,7 +3511,7 @@ function renderExpenses(){
     <td class="tr fw7">${fmt(e.amount)}</td>
     <td>${e.date}</td>
     <td class="fs12 tm">${e.note||'—'}</td>
-    <td><button class="btn btnr btn-sm" onclick="delExp(${e.id})">🗑️</button></td>
+    <td>${canManualDelete()?`<button class="btn btnr btn-sm" onclick="delExp(${e.id})">🗑️</button>`:'—'}</td>
   </tr>`).join('')+
   `<tr style="background:var(--bg)"><td colspan="2"><strong>الإجمالي</strong></td>
     <td class="fw9 tr" style="font-size:16px">${fmt(total)}</td><td colspan="3"></td></tr>`;
@@ -2820,10 +3537,15 @@ async function renderReports(){
   const r=await api(`/reports/${m}`);
   if(!r.ok)return;
   const d=r.data;
+  document.getElementById('r-stats').style.gridTemplateColumns='repeat(3,1fr)';
   document.getElementById('r-stats').innerHTML=`
     <div class="sc cg"><div class="scic g">💰</div><div><div class="scv">${Number(d.total_revenue||0).toLocaleString()}</div><div class="scl">إجمالي الإيرادات</div></div></div>
+    <div class="sc cr"><div class="scic r">↩️</div><div><div class="scv">${Number(d.total_refunds||0).toLocaleString()}</div><div class="scl">إجمالي الاسترجاعات</div></div></div>
     <div class="sc cr"><div class="scic r">🧾</div><div><div class="scv">${Number(d.total_expenses||0).toLocaleString()}</div><div class="scl">إجمالي المصروفات</div></div></div>
-    <div class="sc ${d.net>=0?'cg':'cr'}"><div class="scic ${d.net>=0?'g':'r'}">📊</div><div><div class="scv">${Number(d.net||0).toLocaleString()}</div><div class="scl">صافي الأرباح (${cur()})</div></div></div>
+    <div class="sc cb"><div class="scic b">🏛️</div><div><div class="scv">${Number(d.center_share_total||0).toLocaleString()}</div><div class="scl">حصة السنتر (تقدير)</div></div></div>
+    <div class="sc ca"><div class="scic a">👨‍🏫</div><div><div class="scv">${Number(d.teacher_share_total||0).toLocaleString()}</div><div class="scl">حصة المعلمين (تقدير)</div></div></div>
+    <div class="sc ${(d.net_after_refunds||0)>=0?'cg':'cr'}"><div class="scic ${(d.net_after_refunds||0)>=0?'g':'r'}">📊</div><div><div class="scv">${Number(d.net_after_refunds||0).toLocaleString()}</div><div class="scl">صافي بعد الاسترجاع</div></div></div>
+    <div class="sc ${d.net>=0?'cg':'cr'}"><div class="scic ${d.net>=0?'g':'r'}">➖</div><div><div class="scv">${Number(d.net||0).toLocaleString()}</div><div class="scl">صافي (إيراد − مصروف)</div></div></div>
     <div class="sc cb"><div class="scic b">👥</div><div><div class="scv">${STUDENTS.filter(s=>s.status==='active').length}</div><div class="scl">الطلاب النشطون</div></div></div>
   `;
   const totR=d.total_revenue||1;
@@ -2850,11 +3572,68 @@ async function renderReports(){
   document.getElementById('r-late').innerHTML=d.late_students?.length
     ?`<div class="tw"><table><thead><tr><th>الطالب</th><th>الكود</th><th>المجموعة</th><th>الرسوم</th><th>المدفوع</th><th>المتبقي</th></tr></thead><tbody>
       ${d.late_students.map(s=>`<tr>
-        <td><strong>${s.name}</strong></td><td><span class="b bb">${s.code}</span></td>
+        <td><strong>${s.name}</strong></td><td><span class="b bb">${displayStudentCode(s.code)}</span></td>
         <td>${s.course_name||'—'}</td><td>${fmt(s.fees)}</td>
         <td class="tg fw7">${fmt(s.paid_total)}</td><td class="tr fw7">${fmt(s.fees-s.paid_total)}</td>
       </tr>`).join('')}</tbody></table></div>`
     :'<div class="empty"><div class="ei">✅</div><p>لا يوجد متأخرون</p></div>';
+}
+
+async function renderTeacherShare(){
+  const elM=document.getElementById('ts-m');
+  if(!elM)return;
+  if(!v('ts-m'))sv('ts-m',thisMonth());
+  const m=v('ts-m')||thisMonth();
+  let tlist=TEACHERS||[];
+  if(CU?.role==='teacher'&&CU.teacher_link_id)
+    tlist=tlist.filter(x=>Number(x.id)===Number(CU.teacher_link_id));
+  let sumPaid=0,sumC=0,sumT=0;
+  const rows=tlist.map(t=>{
+    let paid=0,c=0,tt=0;
+    PAYMENTS.forEach(p=>{
+      if(!p.date||!String(p.date).startsWith(m))return;
+      const s=getStudent(p.student_id);
+      const cse=getCourse(s?.course_id);
+      const effTid=Number(s?.reg_teacher_id)||Number(cse?.teacher_id);
+      if(!effTid||Number(effTid)!==Number(t.id))return;
+      const pv=Number(p.paid||0);
+      paid+=pv;
+      const [cc,tv]=splitPayForStudentPayment(pv,s,cse);
+      c+=cc;tt+=tv;
+    });
+    sumPaid+=paid;sumC+=c;sumT+=tt;
+    const typLab=(t.center_share_type==='fixed')?'مبلغ ثابت':'نسبة مئوية';
+    const tvRaw=parseShareValue(t.center_share_value);
+    const isFixed=String(t.center_share_type||'percent').toLowerCase()==='fixed';
+    let valShow=isFixed?fmt(t.center_share_value||0):(String(t.center_share_value||0)+'%');
+    if(paid>0.001&&c>0.001){
+      const inferredPct=Math.round((c/paid)*1000)/10;
+      if(!isFixed&&tvRaw<=0) valShow=`≈${inferredPct}% <span class="fs11 tm">(فعلي من المدفوعات)</span>`;
+      else if(isFixed&&tvRaw<=0) valShow=`≈ ${fmt(c)} <span class="fs11 tm">(من إجمالي مدفوعات الشهر)</span>`;
+    }
+    return`<tr>
+      <td><strong>${t.name}</strong></td>
+      <td>${typLab}</td>
+      <td>${valShow}</td>
+      <td class="fw7">${fmt(paid)}</td>
+      <td class="tg fw7">${fmt(c)}</td>
+      <td class="fw7">${fmt(tt)}</td>
+    </tr>`;
+  }).join('');
+  const st=document.getElementById('ts-stats');
+  if(st){
+    st.style.gridTemplateColumns='repeat(4,1fr)';
+    st.innerHTML=`
+    <div class="sc cg"><div class="scic g">💰</div><div><div class="scv">${sumPaid.toLocaleString('ar-EG')}</div><div class="scl">مدفوعات الشهر</div></div></div>
+    <div class="sc cb"><div class="scic b">🏛️</div><div><div class="scv">${sumC.toLocaleString('ar-EG')}</div><div class="scl">إجمالي حصة السنتر</div></div></div>
+    <div class="sc ca"><div class="scic a">👨‍🏫</div><div><div class="scv">${sumT.toLocaleString('ar-EG')}</div><div class="scl">إجمالي حصة المعلمين</div></div></div>
+    <div class="sc cb"><div class="scic b">📅</div><div><div class="scv">${m}</div><div class="scl">الشهر</div></div></div>`;
+  }
+  const tb=document.getElementById('ts-tb');
+  if(tb){
+    if(!tlist.length)tb.innerHTML='<tr><td colspan="6"><div class="empty"><p>لا يوجد مدرسون أو لا صلاحية العرض</p></div></td></tr>';
+    else tb.innerHTML=rows;
+  }
 }
 
 // ══════════════════════════════════════════════════
@@ -2878,7 +3657,7 @@ function renderTeachers(){
         <div><div class="ct">👨‍🏫 ${t.name}</div><div class="fs12 tm">${t.subject||'—'} • ${t.phone||'—'}</div></div>
         <div class="flex gap8">
           <button class="btn btno btn-sm" onclick="editTch(${t.id})">✏️</button>
-          <button class="btn btnr btn-sm" onclick="delTch(${t.id})">🗑️</button>
+          ${canManualDelete()?`<button class="btn btnr btn-sm" onclick="delTch(${t.id})">🗑️</button>`:''}
         </div>
       </div>
       <div class="cb">
@@ -2902,11 +3681,21 @@ function openTM(id=null){
 function editTch(id){openTM(id);}
 async function saveTeacher(){
   const name=v('tm-name').trim();if(!name){toast('أدخل اسم المدرس','err');return;}
-  const body={name,subject:v('tm-subj'),phone:v('tm-phone'),salary:parseFloat(v('tm-sal'))||0,notes:v('tm-notes')};
+  let center_share_type='percent', center_share_value=0;
+  if(editIds.tch){
+    const old=TEACHERS.find(x=>x.id===editIds.tch);
+    if(old){
+      center_share_type=(old.center_share_type==='fixed'?'fixed':'percent');
+      center_share_value=parseShareValue(old.center_share_value);
+    }
+  }
+  const body={name,subject:v('tm-subj'),phone:v('tm-phone'),salary:parseFloat(String(v('tm-sal')||'').replace(/,/g,'.'))||0,notes:v('tm-notes'),
+    center_share_type,center_share_value};
   const action=editIds.tch?'update':'add';
   if(editIds.tch)body.id=editIds.tch;
   const r=await api(`/teachers/${action}`,body);
   if(handlePermError(r)) return;
+  if(!r.ok){toast(r.msg||'تعذّر حفظ بيانات المدرس','err');return;}
   toast(editIds.tch?'✅ تم التعديل':'✅ تم إضافة المدرس');CM('mo-t');editIds.tch=null; await reloadAndRefresh();
 }
 async function delTch(id){
@@ -2925,14 +3714,16 @@ function renderCourses(){
     if(!CU.teacher_link_id) list = [];
     else list = list.filter(c => c.teacher_id == CU.teacher_link_id);
   }
-  if(!list.length){tb.innerHTML=`<tr><td colspan="8"><div class="empty"><div class="ei">📚</div><p>لا توجد مجموعات</p></div></td></tr>`;return;}
+  if(!list.length){tb.innerHTML=`<tr><td colspan="9"><div class="empty"><div class="ei">📚</div><p>لا توجد مجموعات</p></div></td></tr>`;return;}
   const canEditCourses = isAdmin || (CU?.perms?.courses);
-  const canDeleteCourses = isAdmin || (CU?.role === 'teacher' && CU?.perms?.courses);
+  const canDeleteCourses = (CU?.role === 'teacher' && CU?.perms?.courses) || (canManualDelete() && (CU?.role === 'admin' || CU?.perms?.courses));
   tb.innerHTML=list.map(c=>{
     const cnt=STUDENTS.filter(s=>s.course_id===c.id&&s.status==='active').length;
+    const durH=((c.session_minutes!=null&&c.session_minutes>0)?c.session_minutes:90)/60;
     return`<tr>
       <td><strong>${c.name}</strong></td><td>${c.group_name}</td>
       <td>${c.teacher_name||'—'}</td><td>${c.days||'—'}</td><td>${c.time||'—'}</td>
+      <td class="tm">${durH} س</td>
       <td class="fw7">${fmt(c.fees)}</td>
       <td><span class="b bb">${cnt} طالب</span></td>
       <td><div class="flex gap8">
@@ -2943,10 +3734,15 @@ function renderCourses(){
   }).join('');
 }
 function openCM(id=null){
+  ensureCourseFormBuilt();
   editIds.crs=id;
   document.getElementById('cm-t').textContent=id?'تعديل المجموعة':'إضافة مجموعة';
   popTeachers('cm-teacher');
-  ['cm-name','cm-group','cm-fees','cm-days','cm-time','cm-desc'].forEach(f=>sv(f,''));
+  ['cm-name','cm-group','cm-fees','cm-desc'].forEach(f=>sv(f,''));
+  sv('cm-time','');
+  const smin=id?(COURSES.find(x=>x.id===id)?.session_minutes):null;
+  sv('cm-hours',String((smin!=null&&smin>0?smin:90)/60));
+  setCmDaysFromString('');
   // المدرس يضيف/يعدل مجموعته فقط → اقفل اختيار المدرس عليه
   const tSel = document.getElementById('cm-teacher');
   if(tSel){
@@ -2959,18 +3755,29 @@ function openCM(id=null){
       tSel.style.background = '';
     }
   }
-  if(id){const c=COURSES.find(x=>x.id===id);if(c){sv('cm-name',c.name);sv('cm-group',c.group_name);sv('cm-teacher',c.teacher_id||'');sv('cm-fees',c.fees||'');sv('cm-days',c.days||'');sv('cm-time',c.time||'');sv('cm-desc',c.description||'');}}
+  if(id){const c=COURSES.find(x=>x.id===id);if(c){
+    sv('cm-name',c.name);sv('cm-group',c.group_name);sv('cm-teacher',c.teacher_id||'');sv('cm-fees',c.fees||'');
+    setCmDaysFromString(c.days||'');
+    sv('cm-time',c.time||'');
+    sv('cm-hours',String((c.session_minutes!=null&&c.session_minutes>0?c.session_minutes:90)/60));
+    sv('cm-desc',c.description||'');
+  }}
   OM('mo-c');
 }
 function editCrs(id){openCM(id);}
 async function saveCourse(){
   const name=v('cm-name').trim();const group=v('cm-group').trim();
   if(!name||!group){toast('أدخل اسم المادة والمجموعة','err');return;}
+  const daysStr=collectCmDays();
+  if(!daysStr){toast('اختر يوماً واحداً على الأقل للحصة','err');return;}
+  if(!v('cm-time')){toast('اختر وقت الحصة','err');return;}
   let teacherId = parseInt(v('cm-teacher'))||null;
   if(CU?.role === 'teacher'){
     teacherId = CU.teacher_link_id || null;
   }
-  const body={name,group_name:group,teacher_id:teacherId,fees:parseFloat(v('cm-fees'))||0,days:v('cm-days'),time:v('cm-time'),description:v('cm-desc')};
+  const hrs=parseFloat(v('cm-hours'))||1.5;
+  const session_minutes=Math.max(30,Math.round(hrs*60));
+  const body={name,group_name:group,teacher_id:teacherId,fees:parseFloat(v('cm-fees'))||0,days:daysStr,time:v('cm-time'),description:v('cm-desc'),session_minutes};
   const action=editIds.crs?'update':'add';
   if(editIds.crs)body.id=editIds.crs;
   const r=await api(`/courses/${action}`,body);
@@ -2989,26 +3796,24 @@ const PERMS_LIST=[
   {k:'dash',l:'لوحة التحكم'},{k:'students',l:'إدارة الطلاب'},{k:'attendance',l:'الحضور والغياب'},
   {k:'sessions',l:'إدارة الحصص'},{k:'grades',l:'الدرجات'},
   {k:'followup',l:'متابعة الطلاب'},{k:'payments',l:'الرسوم والمدفوعات'},
-  {k:'expenses',l:'المصروفات'},{k:'reports',l:'التقارير'},
+  {k:'expenses',l:'المصروفات'},{k:'reports',l:'التقارير المالية'},{k:'teacher_share',l:'⚖️ نسبة السنتر والمعلم'},
   {k:'courses',l:'المواد والمجموعات'},{k:'teachers',l:'المدرسون'},
-  {k:'due',l:'⏰ المستحقات (الطلاب المستحقون للدفع)'},
-  {k:'about',l:'ℹ️ حول البرنامج'},
-  {k:'serial_licenses',l:'🔑 السريالات والمطور (خاص بالمطور)'},
+  {k:'users',l:'👤 إدارة المستخدمين'},{k:'settings',l:'⚙️ إعدادات السنتر'},
+  {k:'due',l:'⏰ المستحقات (الطلاب المستحقون للدفع)'},{k:'about',l:'ℹ️ حول البرنامج'},
+  {k:'manual_delete',l:'🗑️ حذف السجلات (دفعات، طلاب، مجموعات، مصروفات…)'},
+  {k:'serial_licenses',l:'🔑 السريالات (يُدار من حساب مطور النظام فقط)'},
   {k:'edit_fees',l:'✏️ تعديل الرسوم يدوياً'},
   {k:'import_export',l:'📦 استيراد وتصدير البيانات'},
   {k:'online_users',l:'🟢 شاشة المتصلين'},
   {k:'shared_database',l:'📁 مسار قاعدة البيانات (شبكة)'},
 ];
 const ROLE_PERMS={
-  admin:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:1,expenses:1,reports:1,courses:1,teachers:1,users:1,settings:1,about:1,due:1,serial_licenses:0,edit_fees:1,import_export:1,online_users:1,shared_database:1},
-  // موظف استقبال: طلاب + حضور + حصص + مدفوعات فقط
-  receptionist:{dash:1,students:1,attendance:1,sessions:1,payments:1,grades:0,followup:0,expenses:0,reports:0,courses:0,teachers:0,users:0,settings:0,about:1,due:1,serial_licenses:0,edit_fees:0,import_export:0,online_users:0,shared_database:0},
-  // محاسب: الماليات فقط (مدفوعات + مصروفات + تقارير + داشبورد)
-  accountant:{dash:1,students:0,attendance:0,sessions:0,grades:0,followup:0,payments:1,expenses:1,reports:1,courses:0,teachers:0,users:0,settings:0,about:1,due:1,serial_licenses:0,edit_fees:0,import_export:0,online_users:0,shared_database:0},
-  // مدرس: طلابه + حضور + حصص + درجات + متابعة فقط
-  teacher:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:0,expenses:0,reports:0,courses:1,teachers:0,users:0,settings:0,about:1,due:0,serial_licenses:0,edit_fees:1,import_export:0,online_users:0,shared_database:0},
-  // تجريبي: شامل ماعدا المستخدمين والإعدادات
-  trial:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:1,expenses:1,reports:1,courses:1,teachers:1,users:0,settings:0,about:1,due:1,serial_licenses:0,edit_fees:1,import_export:0,online_users:0,shared_database:0},
+  admin:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:1,expenses:1,reports:1,teacher_share:1,courses:1,teachers:1,users:1,settings:1,about:1,due:1,manual_delete:1,serial_licenses:0,edit_fees:1,import_export:1,online_users:1,shared_database:1},
+  receptionist:{dash:1,students:1,attendance:1,sessions:1,payments:1,grades:0,followup:0,expenses:0,reports:0,teacher_share:0,courses:0,teachers:0,users:0,settings:0,about:1,due:1,manual_delete:0,serial_licenses:0,edit_fees:0,import_export:0,online_users:0,shared_database:0},
+  accountant:{dash:1,students:0,attendance:0,sessions:0,grades:0,followup:0,payments:1,expenses:1,reports:1,teacher_share:1,courses:0,teachers:0,users:0,settings:0,about:1,due:1,manual_delete:0,serial_licenses:0,edit_fees:0,import_export:0,online_users:0,shared_database:0},
+  teacher:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:0,expenses:0,reports:0,teacher_share:0,courses:1,teachers:0,users:0,settings:0,about:1,due:0,manual_delete:0,serial_licenses:0,edit_fees:1,import_export:0,online_users:0,shared_database:0},
+  trial:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:1,expenses:1,reports:1,teacher_share:1,courses:1,teachers:1,users:0,settings:0,about:1,due:1,manual_delete:0,serial_licenses:0,edit_fees:1,import_export:0,online_users:0,shared_database:0},
+  dev_master:{dash:1,students:1,attendance:1,sessions:1,grades:1,followup:1,payments:1,expenses:1,reports:1,teacher_share:1,courses:1,teachers:1,users:1,settings:1,about:1,due:1,manual_delete:1,serial_licenses:1,edit_fees:1,import_export:1,online_users:1,shared_database:1},
 };
 function renderUsers(){
   const tb=document.getElementById('u-tb');
@@ -3032,13 +3837,14 @@ function renderUsers(){
       <td>${opensInfo}</td>
       <td><span class="b ${u.active!==false&&u.active!==0?'bg':'bm'}">${u.active!==false&&u.active!==0?'✓ نشط':'✗ معطل'}</span></td>
       <td><div class="flex gap8">
-        <button class="btn btno btn-sm" onclick="editUsr(${u.id})">✏️</button>
-        ${u.id!==1?`<button class="btn btnr btn-sm" onclick="delUsr(${u.id})">🗑️</button>`:''}
+        ${(CU?.role==='admin'||CU?.role==='dev_master'||CU?.perms?.users)?`<button class="btn btno btn-sm" onclick="editUsr(${u.id})">✏️</button>`:''}
+        ${((CU?.role==='admin'||CU?.role==='dev_master') && u.id!==1)?`<button class="btn btnr btn-sm" onclick="delUsr(${u.id})">🗑️</button>`:''}
       </div></td>
     </tr>`;
   }).join('');
 }
 function openUM(id=null){
+  syncDevMasterRoleOption();
   editIds.usr=id;
   document.getElementById('um-t').textContent=id?'تعديل مستخدم':'إضافة مستخدم';
   ['um-name','um-user','um-pass'].forEach(f=>sv(f,''));
@@ -3098,10 +3904,12 @@ async function saveUser(){
   if(editIds.usr)body.id=editIds.usr;
   const r=await api(`/users/${action}`,body);
   if(handlePermError(r)) return;
+  if(!r.ok){toast(r.msg||'تعذّر حفظ المستخدم','err');return;}
   toast(editIds.usr?'✅ تم التعديل':'✅ تم إضافة المستخدم');CM('mo-u');editIds.usr=null;
-  const ru2=await api('/users');USERS=ru2.data||[];renderUsers();
+  const ru2=await api('/users');if(ru2.ok)USERS=ru2.data||[];renderUsers();
 }
 async function delUsr(id){
+  if(CU?.role!=='admin' && CU?.role!=='dev_master'){ toast('حذف المستخدمين من حساب المدير أو مطور النظام فقط','err'); return; }
   if(!confirm('حذف المستخدم؟'))return;
   const r=await api('/users/delete',{id});
   if(!r.ok){toast(r.msg,'err');return;}
@@ -3115,7 +3923,14 @@ async function delUsr(id){
 //  THEMES
 // ══════════════════════════════════════════════════
 const THEMES = [
+  {id:'silver',    name:'☀️ فضي فاتح',    p:'#1e3a5f', p2:'#2d5a8e', acc:'#f59e0b', bg:'#eef2f7', card:'#fff'},
+  {id:'pure_white',name:'🤍 أبيض نقي',    p:'#1e293b', p2:'#334155', acc:'#6366f1', bg:'#ffffff', card:'#f8fafc', border:'#e2e8f0'},
   {id:'default',   name:'كلاسيك أزرق',  p:'#0f2744', p2:'#1a3d6b', acc:'#f59e0b', bg:'#f1f5f9', card:'#fff'},
+  {id:'snow',      name:'❄️ أبيض ناصع',   p:'#374151', p2:'#4b5563', acc:'#3b82f6', bg:'#f9fafb', card:'#fff'},
+  {id:'cream',     name:'🌿 كريمي دافئ',  p:'#44403c', p2:'#57534e', acc:'#16a34a', bg:'#fafaf9', card:'#fffffe'},
+  {id:'brown',     name:'🪵 بني راقي',    p:'#4a2c17', p2:'#6b3f25', acc:'#d97706', bg:'#fdf6ee', card:'#fffbf5', border:'#e8d5b7'},
+  {id:'mocha',     name:'☕ موكا فاخر',   p:'#3c1f0e', p2:'#5c3118', acc:'#f59e0b', bg:'#fdf0e6', card:'#fff8f0', border:'#ddc4a8'},
+  {id:'sky',       name:'🌤️ سماوي صافي',  p:'#0369a1', p2:'#0284c7', acc:'#f59e0b', bg:'#f0f9ff', card:'#fff'},
   {id:'emerald',   name:'أخضر زمردي',   p:'#064e3b', p2:'#065f46', acc:'#34d399', bg:'#ecfdf5', card:'#fff'},
   {id:'purple',    name:'بنفسجي ملكي',  p:'#3b0764', p2:'#581c87', acc:'#a855f7', bg:'#faf5ff', card:'#fff'},
   {id:'rose',      name:'وردي دافئ',    p:'#881337', p2:'#9f1239', acc:'#fb7185', bg:'#fff1f2', card:'#fff'},
@@ -3137,6 +3952,10 @@ function applyTheme(themeId){
     root.style.setProperty('--text',   '#f1f5f9');
     root.style.setProperty('--muted',  '#94a3b8');
     root.style.setProperty('--border', '#334155');
+  } else if(t.border){
+    root.style.setProperty('--text',   '#0f172a');
+    root.style.setProperty('--muted',  '#6b7280');
+    root.style.setProperty('--border', t.border);
   } else {
     root.style.setProperty('--text',   '#0f172a');
     root.style.setProperty('--muted',  '#64748b');
@@ -3165,9 +3984,100 @@ function renderThemeGrid(){
 }
 
 // تطبيق الثيم المحفوظ عند التحميل
+function renderSubPill(){
+  const pill = document.getElementById('sub-info-pill');
+  if(!pill || !CU) return;
+  if(CU.role === 'dev_master'){
+    pill.style.display = 'none';
+    return;
+  }
+  // Fetch license info from server
+  api('/license/my').then(r => {
+    if(!r || !r.ok || !r.data){ pill.style.display='none'; return; }
+    const d = r.data;
+    const perpetual = d.perpetual;
+    if(perpetual){
+      pill.style.display = 'flex';
+      pill.innerHTML = '✅ <span>اشتراك دائم</span>';
+      pill.style.borderColor = '#10b981';
+      pill.style.color = '#065f46';
+      pill.style.background = '#d1fae5';
+      return;
+    }
+    const daysLeft = d.days_left != null ? Number(d.days_left) : null;
+    const expiry = d.expiry_date || '';
+    if(daysLeft == null){ pill.style.display='none'; return; }
+    pill.style.display = 'flex';
+    let color, bg, border, icon;
+    if(daysLeft > 30){
+      color='#1e40af'; bg='#dbeafe'; border='#93c5fd'; icon='📅';
+    } else if(daysLeft > 7){
+      color='#92400e'; bg='#fef3c7'; border='#fcd34d'; icon='⚠️';
+    } else {
+      color='#991b1b'; bg='#fee2e2'; border='#fca5a5'; icon='🔴';
+    }
+    pill.style.color = color;
+    pill.style.background = bg;
+    pill.style.borderColor = border;
+    const expiryTxt = expiry ? ` (${expiry})` : '';
+    pill.innerHTML = icon + ' <span>الاشتراك: <strong>' + daysLeft + ' يوم متبقي</strong>' + expiryTxt + '</span>';
+  }).catch(()=>{
+    // fallback: if endpoint doesn't exist, show simple active/inactive
+    pill.style.display = 'flex';
+    if(CU.license_active){
+      pill.innerHTML = '✅ <span>اشتراك نشط</span>';
+      pill.style.borderColor = '#10b981';
+      pill.style.color = '#065f46';
+      pill.style.background = '#d1fae5';
+    } else {
+      pill.innerHTML = '🔴 <span>اشتراك منتهي</span>';
+      pill.style.borderColor = '#fca5a5';
+      pill.style.color = '#991b1b';
+      pill.style.background = '#fee2e2';
+    }
+  });
+}
+
 (function initTheme(){
   const saved = localStorage.getItem('app_theme');
-  if(saved && saved !== 'default') applyTheme(saved);
+  if(saved) applyTheme(saved);
+  else applyTheme('silver');
+})();
+
+function applyLayout(mode){
+  const body = document.body;
+  if(mode === 'top'){
+    body.classList.add('layout-top');
+  } else {
+    body.classList.remove('layout-top');
+  }
+  localStorage.setItem('app_layout', mode);
+  renderLayoutGrid();
+}
+
+function renderLayoutGrid(){
+  const current = localStorage.getItem('app_layout') || 'side';
+  const optSide = document.getElementById('layout-opt-side');
+  const optTop  = document.getElementById('layout-opt-top');
+  if(!optSide || !optTop) return;
+  const acc = getComputedStyle(document.documentElement).getPropertyValue('--acc').trim() || '#f59e0b';
+  const p   = getComputedStyle(document.documentElement).getPropertyValue('--p').trim() || '#1e3a5f';
+  if(current === 'top'){
+    optTop.style.border  = '3px solid ' + acc;
+    optTop.style.boxShadow = '0 0 0 2px ' + p;
+    optSide.style.border = '3px solid transparent';
+    optSide.style.boxShadow = 'none';
+  } else {
+    optSide.style.border  = '3px solid ' + acc;
+    optSide.style.boxShadow = '0 0 0 2px ' + p;
+    optTop.style.border  = '3px solid transparent';
+    optTop.style.boxShadow = 'none';
+  }
+}
+
+(function initLayout(){
+  const saved = localStorage.getItem('app_layout') || 'side';
+  applyLayout(saved);
 })();
 
 async function renderSettings(){
@@ -3175,6 +4085,7 @@ async function renderSettings(){
   sv('set-phone',SETTINGS.phone||'');sv('set-cur',SETTINGS.currency||'جنيه');
   sv('set-due',SETTINGS.due_day||5);
   renderThemeGrid();
+  renderLayoutGrid();
   try{
     const vr = await api('/meta/version');
     if(vr.ok && vr.data && vr.data.db){
@@ -3189,6 +4100,49 @@ async function renderSettings(){
 //  SESSIONS (إدارة الحصص)
 // ══════════════════════════════════════════════════
 let sesClockTimer = null;
+function parseCourseTimeBounds(course, dateStr){
+  if(!course||!course.time)return null;
+  const base=new Date(dateStr+'T12:00:00');
+  if(isNaN(base.getTime()))return null;
+  const t=String(course.time).trim();
+  let h=0,m=0;
+  const is12=/AM|PM/i.test(t);
+  const parts=t.replace(/\s*(AM|PM)/i,'').split(':');
+  h=parseInt(parts[0],10)||0;m=parseInt(parts[1]||0,10)||0;
+  if(is12){
+    const isPM=/PM/i.test(t);
+    if(isPM&&h!==12)h+=12;
+    if(!isPM&&h===12)h=0;
+  }
+  const start=new Date(base);
+  start.setHours(h,m,0,0);
+  const durMin=(course.session_minutes!=null&&course.session_minutes>0)?course.session_minutes:90;
+  const end=new Date(start.getTime()+durMin*60000);
+  return {start,end};
+}
+function runSessionAlertsForPage(dateStr,courses){
+  const pg=document.getElementById('page-sessions');
+  if(!pg||!pg.classList.contains('on'))return;
+  if(dateStr!==today())return;
+  const now=new Date(), grace=3*60000;
+  (courses||[]).forEach(c=>{
+    const b=parseCourseTimeBounds(c,dateStr);
+    if(!b)return;
+    const k1='sesA1-'+c.id+'-'+dateStr, k2='sesA2-'+c.id+'-'+dateStr;
+    if(now>=b.start&&now<=new Date(b.start.getTime()+grace)){
+      if(!sessionStorage.getItem(k1)){
+        sessionStorage.setItem(k1,'1');
+        toast('⏰ بدأت حصة «'+c.name+' — '+c.group_name+'» — تأكد من تسجيل الحضور','ok');
+      }
+    }
+    if(now>=b.end&&now<=new Date(b.end.getTime()+grace)){
+      if(!sessionStorage.getItem(k2)){
+        sessionStorage.setItem(k2,'1');
+        toast('🔔 انتهت حصة «'+c.name+' — '+c.group_name+'» — سجّل الانصراف','ok');
+      }
+    }
+  });
+}
 function startSesClock(){
   clearInterval(sesClockTimer);
   const el = document.getElementById('ses-clock');
@@ -3203,24 +4157,18 @@ async function renderSessions(){
   document.getElementById('ses-d').value=date;
   const cf=v('ses-c'), sf=v('ses-status');
   const dayNames=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-  const selDate=new Date(date), selDay=dayNames[selDate.getDay()];
+  const selDate=new Date(date+'T12:00:00'), selDay=dayNames[selDate.getDay()];
   let todayCourses=COURSES.filter(c=>{
     if(cf&&c.id!=cf)return false;
     if(!c.days)return true;
     return c.days.includes(selDay);
   });
   function sessionStatus(c){
-    if(!c.time)return 'upcoming';
+    const b=parseCourseTimeBounds(c,date);
+    if(!b)return 'upcoming';
     const now=new Date();
-    const isPM=/PM/i.test(c.time);
-    const parts=c.time.replace(/\s*(AM|PM)/i,'').split(':');
-    let h=parseInt(parts[0]),m=parseInt(parts[1]||0);
-    if(isPM&&h!==12)h+=12;
-    if(!isPM&&h===12)h=0;
-    const start=new Date(selDate);start.setHours(h,m,0,0);
-    const end=new Date(start.getTime()+90*60000);
-    if(now<start)return 'upcoming';
-    if(now>=start&&now<=end)return 'ongoing';
+    if(now<b.start)return 'upcoming';
+    if(now>=b.start&&now<=b.end)return 'ongoing';
     return 'done';
   }
   if(sf)todayCourses=todayCourses.filter(c=>sessionStatus(c)===sf);
@@ -3252,19 +4200,21 @@ async function renderSessions(){
   const presentCount=allStudents.filter(s=>attMap[s.id]?.present).length;
   document.getElementById('ses-sum').textContent=`حاضر: ${presentCount} / ${allStudents.length}`;
   const tb=document.getElementById('ses-tb');
-  if(!allStudents.length){tb.innerHTML=`<tr><td colspan="8"><div class="empty"><div class="ei">🕐</div><p>لا يوجد طلاب في الحصص المحددة</p></div></td></tr>`;return;}
+  if(!allStudents.length){tb.innerHTML=`<tr><td colspan="9"><div class="empty"><div class="ei">🕐</div><p>لا يوجد طلاب في الحصص المحددة</p></div></td></tr>`;return;}
   tb.innerHTML=allStudents.map(s=>{
     const rec=attMap[s.id]||{present:false,note:''};
     const savedArr=sessionStorage.getItem(`ses-arr-${s.id}-${date}`)||'';
+    const sesFeeHtml=sessionFeeDueCell(s,rec);
     return`<tr>
       <td><strong>${s.name}</strong><br><span style="font-size:11px;color:var(--muted)">${s.grade||''}</span></td>
-      <td><code>${s.code||'—'}</code></td>
+      <td><code>${displayStudentCode(s.code)}</code></td>
       <td>${s._course.name}<br><span style="font-size:11px;color:var(--muted)">${s._course.group_name}</span></td>
       <td><span class="b bb">${s._course.time||'—'}</span></td>
       <td>
         <label class="sw"><input type="checkbox" id="ses-chk-${s.id}" ${rec.present?'checked':''} onchange="onSesChk(${s.id},this)"><span class="sl"></span></label>
         <span id="ses-lbl-${s.id}" style="margin-right:8px;font-size:12px;font-weight:700">${rec.present?'✅ حاضر':'❌ غائب'}</span>
       </td>
+      <td>${sesFeeHtml}</td>
       <td><input type="time" class="fc" id="ses-arr-${s.id}" value="${savedArr}" style="max-width:110px"></td>
       <td>
         <label class="sw"><input type="checkbox" id="ses-lv-chk-${s.id}"><span class="sl"></span></label>
@@ -3283,6 +4233,10 @@ async function renderSessions(){
       else{lvLbl.textContent='';sessionStorage.removeItem(`ses-lv-${s.id}-${date}`);}
     });}
   });
+  if(sesAlertsIv){clearInterval(sesAlertsIv);sesAlertsIv=null;}
+  const runAl=()=>runSessionAlertsForPage(date,todayCourses);
+  runAl();
+  sesAlertsIv=setInterval(runAl,45000);
 }
 function onSesChk(sid,chkEl){
   const lbl=document.getElementById('ses-lbl-'+sid);
@@ -3331,8 +4285,10 @@ function setGradeCombo(gradeVal){
 async function saveSettings(){
   const body={center_name:v('set-name'),address:v('set-addr'),phone:v('set-phone'),
     currency:v('set-cur'),due_day:v('set-due')};
-  await api('/settings',body);
-  const rs=await api('/settings');SETTINGS=rs.data||{};applySettings();toast('✅ تم حفظ الإعدادات');
+  const r=await api('/settings',body);
+  if(handlePermError(r)) return;
+  if(!r.ok){toast(r.msg||'تعذّر حفظ الإعدادات','err');return;}
+  const rs=await api('/settings');if(rs.ok)SETTINGS=rs.data||{};applySettings();toast('✅ تم حفظ الإعدادات');
 }
 async function changePw(){
   const old=v('op'),np2=v('np'),cp2=v('cp');
@@ -3478,6 +4434,24 @@ document.getElementById('ap').addEventListener('keydown',e=>{if(e.key==='Enter')
 document.getElementById('au').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('ap').focus();});
 // load saved credentials if remember-me was checked
 loadSavedCredentials();
+// فتح البرنامج بشاشة كاملة تلقائياً
+(function tryFullscreen(){
+  const tryFS = () => {
+    if(document.documentElement.requestFullscreen) return document.documentElement.requestFullscreen();
+    if(document.documentElement.webkitRequestFullscreen) return document.documentElement.webkitRequestFullscreen();
+    if(document.documentElement.mozRequestFullScreen) return document.documentElement.mozRequestFullScreen();
+  };
+  // محاولة الدخول الكامل عند أول تفاعل بالنقر
+  const handler = () => {
+    tryFS();
+    document.removeEventListener('click', handler);
+    document.removeEventListener('keydown', handler);
+  };
+  document.addEventListener('click', handler, {once:true});
+  document.addEventListener('keydown', handler, {once:true});
+  // محاولة مباشرة (تعمل في بعض المتصفحات)
+  try{ tryFS(); } catch(e){}
+})();
 document.getElementById('um-role')?.addEventListener('change',()=>setRolePerms());
 document.getElementById('att-d').value = today();
 document.getElementById('ses-d').value = today();
